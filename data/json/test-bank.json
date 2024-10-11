@@ -1,0 +1,2084 @@
+[
+    {
+        "question": "1. A machine learning engineer has created a Feature Table new_table using Feature Store Client fs. When creating the table, they specified a metadata description with key information about the Feature Table. They now want to retrieve that metadata programmatically.\nWhich of the following lines of code will return the metadata description?",
+        "answers": {
+            "A": "There is no way to return the metadata description programmatically.",
+            "B": "fs.create_training_set(\"new_table\")",
+            "C": "fs.get_table(\"new_table\").description",
+            "D": "fs.get_table(\"new_table\").load_df()",
+            "E": "fs.get_table(\"new_table\")"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "2. A data scientist has a Spark DataFrame spark_df. They want to create a new Spark DataFrame that contains only the rows from spark_df where the value in column price is greater than 0.\nWhich of the following code blocks will accomplish this task?",
+        "answers": {
+            "A": "spark_df[spark_df[\"price\"] > 0]",
+            "B": "spark_df.filter(col(\"price\") > 0)",
+            "C": "SELECT * FROM spark_df WHERE price > 0",
+            "D": "spark_df.loc[spark_df[\"price\"] > 0,:]",
+            "E": "spark_df.loc[:,spark_df[\"price\"] > 0]"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "3. A health organization is developing a classification model to determine whether or not a patient currently has a specific type of infection. The organization's leaders want to maximize the number of positive cases identified by the model.\nWhich of the following classification metrics should be used to evaluate the model?",
+        "answers": {
+            "A": "RMSE",
+            "B": "Precision",
+            "C": "Area under the residual operating curve",
+            "D": "Accuracy",
+            "E": "Recall"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "4. In which of the following situations is it preferable to impute missing feature values with their median value over the mean value?",
+        "answers": {
+            "A": "When the features are of the categorical type",
+            "B": "When the features are of the boolean type",
+            "C": "When the features contain a lot of extreme outliers",
+            "D": "When the features contain no outliers",
+            "E": "When the features contain no missing values"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "5. A data scientist has replaced missing values in their feature set with each respective feature variable\u2019s median value. A colleague suggests that the data scientist is throwing away valuable information by doing this.\nWhich of the following approaches can they take to include as much information as possible in the feature set?",
+        "answers": {
+            "A": "Impute the missing values using each respective feature variable\u2019s mean value instead of the median value",
+            "B": "Refrain from imputing the missing values in favor of letting the machine learning algorithm determine how to handle them",
+            "C": "Remove all feature variables that originally contained missing values from the feature set",
+            "D": "Create a binary feature variable for each feature that contained missing values indicating whether each row\u2019s value has been imputed",
+            "E": "Create a constant feature variable for each feature that contained missing values indicating the percentage of rows from the feature that was originally missing"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "6. A data scientist is wanting to explore summary statistics for Spark DataFrame spark_df. The data scientist wants to see the count, mean, standard deviation, minimum, maximum, and interquartile range (IQR) for each numerical feature.\nWhich of the following lines of code can the data scientist run to accomplish the task?",
+        "answers": {
+            "A": "spark_df.summary ()",
+            "B": "spark_df.stats()",
+            "C": "spark_df.describe().head()",
+            "D": "spark_df.printSchema()",
+            "E": "spark_df.toPandas()"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "7. An organization is developing a feature repository and is electing to one-hot encode all categorical feature variables. A data scientist suggests that the categorical feature variables should not be one-hot encoded within the feature repository.\nWhich of the following explanations justifies this suggestion?",
+        "answers": {
+            "A": "One-hot encoding is not supported by most machine learning libraries.",
+            "B": "One-hot encoding is dependent on the target variable\u2019s values which differ for each application.",
+            "C": "One-hot encoding is computationally intensive and should only be performed on small samples of training sets for individual machine learning problems.",
+            "D": "One-hot encoding is not a common strategy for representing categorical feature variables numerically.",
+            "E": "One-hot encoding is a potentially problematic categorical variable strategy for some machine learning algorithms."
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "8. A data scientist has created two linear regression models. The first model uses price as a label variable and the second model uses log(price) as a label variable. When evaluating the RMSE of each model by comparing the label predictions to the actual price values, the data scientist notices that the RMSE for the second model is much larger than the RMSE of the first model.\nWhich of the following possible explanations for this difference is invalid?",
+        "answers": {
+            "A": "The second model is much more accurate than the first model",
+            "B": "The data scientist failed to exponentiate the predictions in the second model prior to computing the RMSE",
+            "C": "The data scientist failed to take the log of the predictions in the first model prior to computing the RMSE",
+            "D": "The first model is much more accurate than the second model",
+            "E": "The RMSE is an invalid evaluation metric for regression problems"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "9. A data scientist uses 3-fold cross-validation when optimizing model hyperparameters for a regression problem. The following root-mean-squared-error values are calculated on each of the validation folds:\n\u2022 10.0\n\u2022 12.0\n\u2022 17.0\nWhich of the following values represents the overall cross-validation root-mean-squared error?",
+        "answers": {
+            "A": "13.0",
+            "B": "17.0",
+            "C": "12.0",
+            "D": "39.0",
+            "E": "10.0"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "10. A machine learning engineer is trying to scale a machine learning pipeline pipeline that contains multiple feature engineering stages and a modeling stage. As part of the cross-validation process, they are using the following code block:\n\nA colleague suggests that the code block can be changed to speed up the tuning process by passing the model object to the estimator parameter and then placing the updated cv object as the final stage of the pipeline in place of the original model.\nWhich of the following is a negative consequence of the approach suggested by the colleague?",
+        "answers": {
+            "A": "The model will take longer to train for each unique combination of hyperparameter values",
+            "B": "The feature engineering stages will be computed using validation data",
+            "C": "The cross-validation process will no longer be parallelizable",
+            "D": "The cross-validation process will no longer be reproducible",
+            "E": "The model will be refit one more per cross-validation fold"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "11. What is the name of the method that transforms categorical features into a series of binary indicator feature variables?",
+        "answers": {
+            "A": "Leave-one-out encoding",
+            "B": "Target encoding",
+            "C": "One-hot encoding",
+            "D": "Categorical embeddings",
+            "E": "String indexing"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "12. A data scientist wants to parallelize the training of trees in a gradient boosted tree to speed up the training process. A colleague suggests that parallelizing a boosted tree algorithm can be difficult.\nWhich of the following describes why?",
+        "answers": {
+            "A": "Gradient boosting is not a linear algebra-based algorithm which is required for parallelization.",
+            "B": "Gradient boosting requires access to all data at once which cannot happen during parallelization.",
+            "C": "Gradient boosting calculates gradients in evaluation metrics using all cores which prevents parallelization.",
+            "D": "Gradient boosting is an iterative algorithm that requires information from the previous iteration to perform the next step.",
+            "E": "Gradient boosting uses decision trees in each iteration which cannot be parallelized."
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "13. A data scientist wants to efficiently tune the hyperparameters of a scikit-learn model. They elect to use the Hyperopt library's fmin operation to facilitate this process. Unfortunately, the final model is not very accurate. The data scientist suspects that there is an issue with the objective_function being passed as an argument to fmin.\nThey use the following code block to create the objective_function:\n\nWhich of the following changes does the data scientist need to make to their objective_function in order to produce a more accurate model?",
+        "answers": {
+            "A": "Add test set validation process",
+            "B": "Add a random_state argument to the RandomForestRegressor operation",
+            "C": "Remove the mean operation that is wrapping the cross_val_score operation",
+            "D": "Replace the r2 return value with -r2",
+            "E": "Replace the fmin operation with the fmax operation"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "14. A data scientist is attempting to tune a logistic regression model logistic using scikit-learn. They want to specify a search space for two hyperparameters and let the tuning process randomly select values for each evaluation.\nThey attempt to run the following code block, but it does not accomplish the desired task:\n\nWhich of the following changes can the data scientist make to accomplish the task?",
+        "answers": {
+            "A": "Replace the GridSearchCV operation with RandomizedSearchCV",
+            "B": "Replace the GridSearchCV operation with cross_validate",
+            "C": "Replace the GridSearchCV operation with ParameterGrid",
+            "D": "Replace the random_state=0 argument with random_state=1",
+            "E": "Replace the penalty= ['12', '11'] argument with penalty=uniform ('12', '11')"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "15. Which of the following tools can be used to parallelize the hyperparameter tuning process for single-node machine learning models using a Spark cluster?",
+        "answers": {
+            "A": "MLflow Experiment Tracking",
+            "B": "Spark ML",
+            "C": "Autoscaling clusters",
+            "D": "Hyperopt",
+            "E": "Delta Lake"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "16. Which of the following describes the relationship between native Spark DataFrames and pandas API on Spark DataFrames?",
+        "answers": {
+            "A": "pandas API on Spark DataFrames are single-node versions of Spark DataFrames with additional metadata",
+            "B": "pandas API on Spark DataFrames are more performant than Spark DataFrames",
+            "C": "pandas API on Spark DataFrames are made up of Spark DataFrames and additional metadata",
+            "D": "pandas API on Spark DataFrames are less mutable versions of Spark DataFrames",
+            "E": "pandas API on Spark DataFrames are unrelated to Spark DataFrames"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "17. A data scientist has written a data cleaning notebook that utilizes the pandas library, but their colleague has suggested that they refactor their notebook to scale with big data.\nWhich of the following approaches can the data scientist take to spend the least amount of time refactoring their notebook to scale with big data?",
+        "answers": {
+            "A": "They can refactor their notebook to process the data in parallel.",
+            "B": "They can refactor their notebook to use the PySpark DataFrame API.",
+            "C": "They can refactor their notebook to use the Scala Dataset API.",
+            "D": "They can refactor their notebook to use Spark SQL.",
+            "E": "They can refactor their notebook to utilize the pandas API on Spark."
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "18. A data scientist has defined a Pandas UDF function predict to parallelize the inference process for a single-node model:\n\nThey have written the following incomplete code block to use predict to score each record of Spark DataFrame spark_df:\n\n19. Which of the following lines of code can be used to complete the code block to successfully complete the task?",
+        "answers": {
+            "A": "predict(*spark_df.columns)",
+            "B": "mapInPandas(predict)",
+            "C": "predict(Iterator(spark_df))",
+            "D": "mapInPandas(predict(spark_df.columns))",
+            "E": "predict(spark_df.columns)"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "20. Which of the Spark operations can be used to randomly split a Spark DataFrame into a training DataFrame and a test DataFrame for downstream use?",
+        "answers": {
+            "A": "TrainValidationSplit",
+            "B": "DataFrame.where",
+            "C": "CrossValidator",
+            "D": "TrainValidationSplitModel",
+            "E": "DataFrame.randomSplit"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "21. A data scientist is using Spark ML to engineer features for an exploratory machine learning project.\nThey decide they want to standardize their features using the following code block:\n\n22. Upon code review, a colleague expressed concern with the features being standardized prior to splitting the data into a training set and a test set.\nWhich of the following changes can the data scientist make to address the concern?",
+        "answers": {
+            "A": "Utilize the MinMaxScaler object to standardize the training data according to global minimum and maximum values",
+            "B": "Utilize the MinMaxScaler object to standardize the test data according to global minimum and maximum values",
+            "C": "Utilize a cross-validation process rather than a train-test split process to remove the need for standardizing data",
+            "D": "Utilize the Pipeline API to standardize the training data according to the test data's summary statistics",
+            "E": "Utilize the Pipeline API to standardize the test data according to the training data's summary statistics"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "23. A machine learning engineer is trying to scale a machine learning pipeline by distributing its feature engineering process.\nWhich of the following feature engineering tasks will be the least efficient to distribute?",
+        "answers": {
+            "A": "One-hot encoding categorical features",
+            "B": "Target encoding categorical features",
+            "C": "Imputing missing feature values with the mean",
+            "D": "Imputing missing feature values with the true median",
+            "E": "Creating binary indicator features for missing values"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "24. Which of the following is a benefit of using vectorized pandas UDFs instead of standard PySpark UDFs?",
+        "answers": {
+            "A": "The vectorized pandas UDFs allow for the use of type hints",
+            "B": "The vectorized pandas UDFs process data in batches rather than one row at a time",
+            "C": "The vectorized pandas UDFs allow for pandas API use inside of the function",
+            "D": "The vectorized pandas UDFs work on distributed DataFrames",
+            "E": "The vectorized pandas UDFs process data in memory rather than spilling to disk"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "25. A data scientist wants to tune a set of hyperparameters for a machine learning model. They have wrapped a Spark ML model in the objective function objective_function and they have defined the search space search_space.\nAs a result, they have the following code block:\n\nWhich of the following changes do they need to make to the above code block in order to accomplish the task?",
+        "answers": {
+            "A": "Change SparkTrials() to Trials()",
+            "B": "Reduce num_evals to be less than 10",
+            "C": "Change fmin() to fmax()",
+            "D": "Remove the trials=trials argument",
+            "E": "Remove the algo=tpe.suggest argument"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "26. A machine learning engineer would like to develop a linear regression model with Spark ML to predict the price of a hotel room. They are using the Spark DataFrame train_df to train the model.\nThe Spark DataFrame train_df has the following schema:\n\nThe machine learning engineer shares the following code block:\n\nWhich of the following changes does the machine learning engineer need to make to complete the task?",
+        "answers": {
+            "A": "They need to call the transform method on train_df",
+            "B": "They need to convert the features column to be a vector",
+            "C": "They do not need to make any changes",
+            "D": "They need to utilize a Pipeline to fit the model",
+            "E": "They need to split the features column out into one column for each feature"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "27. Which of the following tools can be used to distribute large-scale feature engineering without the use of a UDF or pandas Function API for machine learning pipelines?",
+        "answers": {
+            "A": "Keras",
+            "B": "pandas",
+            "C": "PyTorch",
+            "D": "Spark ML",
+            "E": "Scikit-learn"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "28. A data scientist has developed a linear regression model using Spark ML and computed the predictions in a Spark DataFrame preds_df with the following schema: prediction DOUBLE actual DOUBLE\nWhich of the following code blocks can be used to compute the root mean-squared-error of the model according to the data in preds_df and assign it to the rmse variable?",
+        "answers": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": "",
+            "E": ""
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "29. A machine learning engineer wants to parallelize the training of group-specific models using the Pandas Function API. They have developed the train_model function, and they want to apply it to each group of DataFrame df.\nThey have written the following incomplete code block:\n\nWhich of the following pieces of code can be used to fill in the above blank to complete the task?",
+        "answers": {
+            "A": "applyInPandas",
+            "B": "mapInPandas",
+            "C": "predict",
+            "D": "train_model",
+            "E": "groupedApplyIn"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "30. Which of the following statements describes a Spark ML estimator?",
+        "answers": {
+            "A": "An estimator is a hyperparameter grid that can be used to train a model",
+            "B": "An estimator chains multiple algorithms together to specify an ML workflow",
+            "C": "An estimator is a trained ML model which turns a DataFrame with features into a DataFrame with predictions",
+            "D": "An estimator is an algorithm which can be fit on a DataFrame to produce a Transformer",
+            "E": "An estimator is an evaluation tool to assess to the quality of a mode"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "31. A data scientist has been given an incomplete notebook from the data engineering team. The notebook uses a Spark DataFrame spark_df on which the data scientist needs to perform further feature engineering. Unfortunately, the data scientist has not yet learned the PySpark DataFrame API.\nWhich of the following blocks of code can the data scientist run to be able to use the pandas API on Spark?",
+        "answers": {
+            "A": "import pyspark.pandas as ps\ndf = ps.DataFrame(spark_df)",
+            "B": "import pyspark.pandas as ps\ndf = ps.to_pandas(spark_df)",
+            "C": "spark_df.to_sql()",
+            "D": "import pandas as pd\ndf = pd.DataFrame(spark_df)",
+            "E": "spark_df.to_pandas()"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "32. A data scientist has produced two models for a single machine learning problem. One of the models performs well when one of the features has a value of less than 5, and the other model performs well when the value of that feature is greater than or equal to 5. The data scientist decides to combine the two models into a single machine learning solution.\nWhich of the following terms is used to describe this combination of models?",
+        "answers": {
+            "A": "Bootstrap aggregation",
+            "B": "Support vector machines",
+            "C": "Bucketing",
+            "D": "Ensemble learning",
+            "E": "Stacking"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "33. Which statement describes a Spark ML transformer?",
+        "answers": {
+            "A": "transformer is an algorithm which can transform one DataFrame into another DataFrame",
+            "B": "transformer is a hyperparameter grid that can be used to train a model",
+            "C": "transformer chains multiple algorithms together to transform an ML workflow",
+            "D": "transformer is a learning algorithm that can use a DataFrame to train a model"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "35. Assuming the default Spark configuration is in place, which of the following is a benefit of using an Iterator?",
+        "answers": {
+            "A": "he data will be limited to a single executor preventing the model from being loaded multiple times",
+            "B": "he model will be limited to a single executor preventing the data from being distributed",
+            "C": "he model only needs to be loaded once per executor rather than once per batch during the inference process",
+            "D": "he data will be distributed across multiple executors during the inference process"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Which of the following code blocks can be used to compute the root mean-squared-error of the model according to the data in preds_df and assign it to the rmse variable?",
+        "answers": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+        },
+        "correct_answer": null
+    },
+    {
+        "question": "Which of the following tools can the data scientist use to spend the least amount of time refactoring their notebook to scale with big data?",
+        "answers": {
+            "A": "ySpark DataFrame API",
+            "B": "andas API on Spark",
+            "C": "park SQL",
+            "D": "eature Store"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "A data scientist uses 3-fold cross-validation and the following hyperparameter grid when optimizing model hyperparameters via grid search for a classification problem: Hyperparameter 1: [2, 5, 10] Hyperparameter 2: [50, 100] Which of the following represents the number of machine learning models that can be trained in parallel during this process?",
+        "answers": {
+            "A": "3",
+            "B": "5",
+            "C": "6",
+            "D": "18"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A data scientist wants to efficiently tune the hyperparameters of a scikit-learn model in parallel. They elect to use the Hyperopt library to facilitate this process. Which of the following Hyperopt tools provides the ability to optimize hyperparameters in parallel?",
+        "answers": {
+            "A": "fmin",
+            "B": "SparkTrials",
+            "C": "quniform",
+            "D": "search_space",
+            "E": "objective_function"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "A data scientist is wanting to explore the Spark DataFrame spark_df. The data scientist wants visual histograms displaying the distribution of numeric features to be included in the exploration. Which of the following lines of code can the data scientist run to accomplish the task?",
+        "answers": {
+            "A": "spark_df.describe()",
+            "B": "dbutils.data(spark_df).summarize()",
+            "C": "This task cannot be accomplished in a single line of code.",
+            "D": "spark_df.summary()",
+            "E": "dbutils.data.summarize(spark_df)"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "A data scientist wants to use Spark ML to one-hot encode the categorical features in their PySpark DataFrame features_df. A list of the names of the string columns is assigned to the input_columns variable. They have developed this code block to accomplish this task: The code block is returning an error. Which of the following adjustments does the data scientist need to make to accomplish this task?",
+        "answers": {
+            "A": "They need to specify the method parameter to the OneHotEncoder.",
+            "B": "They need to remove the line with the fit operation.",
+            "C": "They need to use StringIndexer prior to one-hot encoding the features.",
+            "D": "They need to use VectorAssembler prior to one-hot encoding the features."
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A data scientist wants to use Spark ML to impute missing values in their PySpark DataFrame features_df. They want to replace missing values in all numeric columns in features_df with each respective numeric column's median value. They have developed the following code block to accomplish this task: The code block is not accomplishing the task. Which reasons describes why the code block is not accomplishing the imputation task?",
+        "answers": {
+            "A": "It does not impute both the training and test data sets.",
+            "B": "The inputCols and outputCols need to be exactly the same.",
+            "C": "The fit method needs to be called instead of transform.",
+            "D": "It does not fit the imputer on the data to create an ImputerModel."
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Which of the following evaluation metrics is not suitable to evaluate runs in AutoML experiments for regression problems?",
+        "answers": {
+            "A": "F1",
+            "B": "R-squared",
+            "C": "MAE",
+            "D": "MSE"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A machine learning engineering team has a Job with three successive tasks. Each task runs a single notebook. The team has been alerted that the Job has failed in its latest run. Which of the following approaches can the team use to identify which task is the cause of the failure?",
+        "answers": {
+            "A": "Run each notebook interactively",
+            "B": "Review the matrix view in the Job's runs",
+            "C": "Migrate the Job to a Delta Live Tables pipeline",
+            "D": "Change each Task's setting to use a dedicated cluster"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "A new data scientist has started working on an existing machine learning project. The project is a scheduled Job that retrains every day. The project currently exists in a Repo in Databricks. The data scientist has been tasked with improving the feature engineering of the pipeline's preprocessing stage. The data scientist wants to make necessary updates to the code that can be easily adopted into the project without changing what is being run each day. Which approach should the data scientist take to complete this task?",
+        "answers": {
+            "A": "They can create a new branch in Databricks, commit their changes, and push those changes to the Git provider.",
+            "B": "They can clone the notebooks in the repository into a Databricks Workspace folder and make the necessary changes.",
+            "C": "They can create a new Git repository, import it into Databricks, and copy and paste the existing code from the original repository before making changes.",
+            "D": "They can clone the notebooks in the repository into a new Databricks Repo and make the necessary changes."
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A machine learning engineer has identified the best run from an MLflow Experiment. They have stored the run ID in the run_id variable and identified the logged model name as \"model\". They now want to register that model in the MLflow Model Registry with the name \"best_model\". Which lines of code can they use to register the model associated with run_id to the MLflow Model Registry?",
+        "answers": {
+            "A": "mlflow.register_model(run_id, 'best_model')",
+            "B": "mlflow.register_model(f'runs:/{run_id}/model', 'best_model')",
+            "C": "mlflow.register_model(f'runs:/{run_id}/model')",
+            "D": "mlflow.register_model(f'runs:/{run_id}/best_model', 'model')"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "A machine learning engineer has been notified that a new Staging version of a model registered to the MLflow Model Registry has passed all tests. As a result, the machine learning engineer wants to put this model into production by transitioning it to the Production stage in the Model Registry. From which of the following pages in Databricks Machine Learning can the machine learning engineer accomplish this task?",
+        "answers": {
+            "A": "The home page of the MLflow Model Registry",
+            "B": "The experiment page in the Experiments observatory",
+            "C": "The model version page in the MLflow Model Registry",
+            "D": "The model page in the MLflow Model Registry"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A data scientist is utilizing MLflow Autologging to automatically track their machine learning experiments. After completing a series of runs for the experiment experiment_id, the data scientist wants to identify the run_id of the run with the best root-mean-square error (RMSE). Which of the following lines of code can be used to identify the run_id of the run with the best RMSE in experiment_id?",
+        "answers": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A machine learning engineer has grown tired of needing to install the MLflow Python library on each of their clusters. They ask a senior machine learning engineer how their notebooks can load the MLflow library without installing it each time. The senior machine learning engineer suggests that they use Databricks Runtime for Machine Learning. Which of the following approaches describes how the machine learning engineer can begin using Databricks Runtime for Machine Learning?",
+        "answers": {
+            "A": "They can add a line enabling Databricks Runtime ML in their init script when creating their clusters.",
+            "B": "They can check the Databricks Runtime ML box when creating their clusters.",
+            "C": "They can select a Databricks Runtime ML version from the Databricks Runtime Version dropdown when creating their clusters.",
+            "D": "They can set the runtime-version variable in their Spark session to 'ml'."
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A data scientist is developing a machine learning pipeline using AutoML on Databricks Machine Learning. Which of the following steps will the data scientist need to perform outside of their AutoML experiment?",
+        "answers": {
+            "A": "Model tuning",
+            "B": "Model evaluation",
+            "C": "Model deployment",
+            "D": "Exploratory data analysis"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Which of the following approaches can be used to view the notebook that was run to create an MLflow run?",
+        "answers": {
+            "A": "Open the MLmodel artifact in the MLflow run page",
+            "B": "Click the 'Models' link in the row corresponding to the run in the MLflow experiment page",
+            "C": "Click the 'Source' link in the row corresponding to the run in the MLflow experiment page",
+            "D": "Click the 'Start Time' link in the row corresponding to the run in the MLflow experiment page"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A data scientist is using MLflow to track their machine learning experiment. As a part of each of their MLflow runs, they are performing hyperparameter tuning. The data scientist would like to have one parent run for the tuning process with a child run for each unique combination of hyperparameter values. All parent and child runs are being manually started with mlflow.start_run. Which of the following approaches can the data scientist use to accomplish this MLflow run organization?",
+        "answers": {
+            "A": "They can turn on Databricks Autologging",
+            "B": "They can specify nested=True when starting the child run for each unique combination of hyperparameter values",
+            "C": "They can start each child run inside the parent run's indented code block using mlflow.start_run()",
+            "D": "They can start each child run with the same experiment ID as the parent run",
+            "E": "They can specify nested=True when starting the parent run for the tuning process"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "A machine learning engineer is converting a decision tree from sklearn to Spark ML. They notice that they are receiving different results despite all of their data and manually specified hyperparameter values being identical. Which of the following describes a reason that the single-node sklearn decision tree and the Spark ML decision tree can differ?",
+        "answers": {
+            "A": "Spark ML decision trees test every feature variable in the splitting algorithm",
+            "B": "Spark ML decision trees automatically prune overfit trees",
+            "C": "Spark ML decision trees test more split candidates in the splitting algorithm",
+            "D": "Spark ML decision trees test a random sample of feature variables in the splitting algorithm",
+            "E": "Spark ML decision trees test binned features values as representative split candidates"
+        },
+        "correct_answer": "E"
+    },
+    {
+        "question": "The implementation of linear regression in Spark ML first attempts to solve the linear regression problem using matrix decomposition, but this method does not scale well to large datasets with a large number of variables. Which of the following approaches does Spark ML use to distribute the training of a linear regression model for large data?",
+        "answers": {
+            "A": "Logistic regression",
+            "B": "Spark ML cannot distribute linear regression training",
+            "C": "Iterative optimization",
+            "D": "Least-squares method",
+            "E": "Singular value decomposition"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "Which of the following machine learning algorithms typically uses bagging?",
+        "answers": {
+            "A": "Gradient boosted trees",
+            "B": "K-means",
+            "C": "Random forest",
+            "D": "Linear regression",
+            "E": "Decision tree"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A data scientist has produced two models for a single machine learning problem. One of the models performs well when one of the features has a value of less than 5, and the other model performs well when the value of that feature is greater than or equal to 5. The data scientist decides to combine the two models into a single machine learning solution. Which of the following terms is used to describe this combination of models?",
+        "answers": {
+            "A": "Bootstrap aggregation",
+            "B": "Support vector machines",
+            "C": "Bucketing",
+            "D": "Ensemble learning",
+            "E": "Stacking"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "A data scientist has been given an incomplete notebook from the data engineering team. The notebook uses a Spark DataFrame spark_df on which the data scientist needs to perform further feature engineering. Unfortunately, the data scientist has not yet learned the PySpark DataFrame API. Which of the following blocks of code can the data scientist run to be able to use the pandas API on Spark?",
+        "answers": {
+            "A": "import pyspark.pandas as ps\n df = ps.DataFrame(spark_df)",
+            "B": "import pyspark.pandas as ps\n df = ps.to_pandas(spark_df)",
+            "C": "spark_df.to_sql()",
+            "D": "import pandas as pd\n df = pd.DataFrame(spark_df)",
+            "E": "spark_df.to_pandas()"
+        },
+        "correct_answer": "A"
+    },
+    {
+    "question": "A data scientist is transitioning their pandas DataFrame code to make use of the pandas API on Spark. They're working with the following incomplete code:\n\n\n________BLANK_________\ndf = ps.read_parquet(path)\ndf[\"category\"].value_counts()\n\n\nWhich line of code should they use to complete the refactoring successfully with the pandas API on Spark?\nChoose only ONE best answer.",
+    "answers": {
+      "A": "Import pandas as ps",
+      "B": "Import databricks.pandas as pd",
+      "C": "Import pyspark.pandas as ps",
+      "D": "Import pandas.spark as ps",
+      "E": "Import databricks.pyspark as ps"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "How would you characterize boosting for machine learning models?",
+    "answers": {
+      "A": "Boosting is the ensemble process of training machine learning models sequentially with each model learning from the errors of the preceding models.",
+      "B": "Boosting is the ensemble process of training a machine learning model for each sample in a set of bootstrapped samples of the training data and combining the predictions of each model to get a final estimate.",
+      "C": "Boosting is the ensemble process of training machine learning models sequentially with each model being trained on a distinct subset of the data.",
+      "D": "Boosting is the ensemble process of training machine learning models sequentially with each model being trained on a progressively larger sample of the training data.",
+      "E": "Boosting is the ensemble process of training a machine learning model for each sample in a set of bootstrapped samples of the training data, and then appending the model estimates as a feature variable on the training set which is used to train another model."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "In an AutoML experiment, what are the evaluation metrics automatically calculated for each run when dealing with regression problems?",
+    "answers": {
+      "A": "All of these",
+      "B": "Mean Absolute Error (MAE)",
+      "C": "Coefficient of Determination (R-squared)",
+      "D": "Root Mean Square Error (RMSE)",
+      "E": "Mean Square Error (MSE)"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "After you Instantiate FeatureStoreClient as fs. What will be the format of primary_keys in the blank provided?\n\n\nfs.create_table(\nname = table_name,\nprimary_keys = ______________,\nschema = airbnb_df.schema,\ndescription = \"All Errors are capured in this table\"\n)",
+    "answers": {
+      "A": "[\"index\"]",
+      "B": "\"index\"",
+      "C": "(\"index\")",
+      "D": "Index",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following issues can arise when using one-hot encoding (OHE) with tree-based models?",
+    "answers": {
+      "A": "Inducing sparsity in the dataset",
+      "B": "None of the options",
+      "C": "Limiting the number of split options for categorical variables",
+      "D": "Both"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A machine learning engineer is working to upgrade a machine learning project in a way that enables automatic model refresh every time the project runs. The project is linked to an existing model referred to as model_name in the MLflow Model Registry. The following block of code is part of their approach:\n\n\nmlflow.sklearn.log_model (\nsk_model=model,\nartifact_path=\"model\",\nregistered_model_name=model_name\n)\n\n\nGiven that model_name already exists in the MLflow Model Registry, what does the parameter and argument registered_model_name=model_name denote?",
+    "answers": {
+      "A": "It eliminates the requirement of specifying the model name in the subsequent obligatory call to mlflow.register_model.",
+      "B": "It records a new model titled model_name in the MLflow Model Registry.",
+      "C": "It represents the name of the logged model in the MLflow Experiment.",
+      "D": "It registers a new version of the model_name model in the MLflow Model Registry.",
+      "E": "It denotes the name of the Run in the MLflow Experiment."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A data scientist is carrying out hyperparameter optimization using an iterative optimization algorithm. Each assessment of unique hyperparameter values is being trained on a distinct compute node. They are conducting eight evaluations in total on eight compute nodes. Although the accuracy of the model varies across the eight evaluations, they observe that there's no consistent pattern of enhancement in the accuracy.\n\n\nWhat modifications could the data scientist make to enhance their model's accuracy throughout the tuning process?",
+    "answers": {
+      "A": "Adjust the count of compute nodes to be half or fewer than half of the number of evaluations.",
+      "B": "Switch the iterative optimization algorithm used to aid the tuning process.",
+      "C": "Adjust the count of compute nodes to be double or more than double the number of evaluations.",
+      "D": "Alter both the number of compute nodes and evaluations to be considerably smaller.",
+      "E": "Adjust both the number of compute nodes and evaluations to be substantially larger."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What is the primary advantage of parallelizing hyperparameter tuning?",
+    "answers": {
+      "A": "It improves model performance",
+      "B": "It reduces the dimensionality of the dataset",
+      "C": "It speeds up the tuning process by evaluating multiple configurations simultaneously",
+      "D": "It ensures the model is deployed correctly",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A machine learning engineer has evaluated a new Staging version of a model in the MLflow Model Registry. After passing all the tests, the engineer would like to move this model to production by transitioning it to the Production stage in the Model Registry. From which section in Databricks Machine Learning can the engineer achieve this?",
+    "answers": {
+      "A": "From the Run page in the Experiments section",
+      "B": "From the Model page in the MLflow Model Registry",
+      "C": "From the comment feature on the notebook page where the model was developed",
+      "D": "From the Model Version page in the MLflow Model Registry",
+      "E": "From the Experiment page in the Experiments section"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A data scientist is trying to use Spark ML to fill in missing values in their PySpark DataFrame 'features_df'. They want to replace the missing values in all numeric columns in 'features_df' with the median value of each corresponding numeric column. However, the code they have written does not perform the task correctly. Can you identify the reason why the code is not performing the imputation task as intended?\n\n\nmy_imputer = imputer\n( strategy = \"median\",\ninputCols = input_columns,\noutputCols = output_columns\n)\nimputed_df = my_imputer.transform(features_df)",
+    "answers": {
+      "A": "Imputing using a median value is not possible.",
+      "B": "It does not simultaneously impute both the training and test datasets.",
+      "C": "The 'inputCols' and 'outputCols' need to match exactly.",
+      "D": "The code fails to fit the imputer to the data to create an 'ImputerModel'.",
+      "E": "The 'fit' method needs to be invoked instead of 'transform'."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which Chart would you use to visually represent Correlation between variables?",
+    "answers": {
+      "A": "Histogram",
+      "B": "Bar Chart",
+      "C": "Box Plot",
+      "D": "Scatter Plot"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "In Databricks, which of the following code snippets is used to filter a DataFrame called \"fixed_price_df\" to include only rows with a \"price\" column value greater than 0?",
+    "answers": {
+      "A": "fixed_price_df.filter(col(\"price\") > 0)",
+      "B": "fixed_price_df.filter(\"price\" > 0)",
+      "C": "fixed_price_df.contains(col(\"price\") > 0)",
+      "D": "fixed_price_df.where(\"price\" > 0)",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "A data scientist has constructed a random forest regressor pipeline and integrated it as the final stage in a Spark ML Pipeline. They've initiated a cross-validation process, setting the pipeline with Random forest regressor method inside of it. What potential downside could arise from making pipeline inside the cross-validation process?",
+    "answers": {
+      "A": "The process could endure a lengthier runtime since all stages of the pipeline need to be refit or retransformed with each model.",
+      "B": "The process could leak data preparation information from the validation sets to the training sets for each model.",
+      "C": "The process could leak data from the training set to the test set during the evaluation phase.",
+      "D": "The process could be incapable of testing each of the unique hyperparameter value combinations in the parameter grid.",
+      "E": "The process could be unable to parallelize tuning due to the distributed nature of the pipeline."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "In Databricks Model Registry, how are different versions of a model with the same model name distinguished from each other?",
+    "answers": {
+      "A": "By assigning a unique version number to each model",
+      "B": "By appending a timestamp to the model name",
+      "C": "By appending the user's name to the model name",
+      "D": "By using a unique model ID",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "In Databricks AutoML, which default metric is used to evaluate the performance of regression models?",
+    "answers": {
+      "A": "Mean squared error (MSE)",
+      "B": "Mean absolute error (MAE)",
+      "C": "R-squared (R2)",
+      "D": "Root mean squared error (RMSE)",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What is the main advantage of using Hyperopt for hyperparameter optimization over manual tuning or grid search?",
+    "answers": {
+      "A": "Hyperopt provides better support for distributed computing",
+      "B": "Hyperopt can automatically select the best machine learning algorithm for a given problem",
+      "C": "Hyperopt can find optimal hyperparameter combinations more efficiently",
+      "D": "Hyperopt guarantees convergence to the global optimum",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "During their educational background, a data scientist was advised to invariably utilize 5-fold cross-validation in their model creation procedure. A team member proposes that there might be instances where a split between training and validation might be favored over k-fold cross-validation when k equals 2.\n\n\nWhich of the options below exemplifies a plausible advantage of applying a training-   validation split over k-fold cross-validation in this situation?",
+    "answers": {
+      "A": "When a training-validation split is used, fewer models need to be constructed.",
+      "B": "When using a training-validation split, bias can be eliminated.",
+      "C": "The reproducibility of the model is possible when employing a training-validation split.",
+      "D": "When applying a training-validation split, fewer hyperparameter values need to be evaluated.",
+      "E": "A separate holdout set is unnecessary when using a training-validation split."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "A data scientist has developed a Python function titled 'generate_features'. This function produces a Spark DataFrame with two columns: 'Customer INT' and 'Region STRING'. The output DataFrame is stored in a variable called 'feature_set'. The next objective for the scientist is to form a Feature Store table utilizing 'feature_set'.\n\n\nWhat is the correct snippet of code that the data scientist can use to initiate and                   populate the Feature Store table using the Feature Store Client 'feature_client'?",
+    "answers": {
+      "A": "feature_client.create_table(\nfunction='generate_features',\nschema=feature_set.schema,\ndescription='Client features'\n)",
+      "B": "feature_client.create_table(\nname='new_feature_table',\nprimary_keys='customer_id',\nschema=feature_set.schema,\ndescription='Client features'\n)",
+      "C": "feature_client.create_table(\nname='new_feature_table',\nprimary_keys='customer_id',\ndf=feature_set,\nschema=feature_set.schema,\ndescription='Client features'\n)",
+      "D": "feature_set.write.mode('feature').saveAsTable('new_feature_table')",
+      "E": "feature_set.write('fs').saveAs('new_feature_table')"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A data scientist is dealing with a feature set having the following schema:\n\u00ef\u00bb\u00bf\ncustomer_id STRING,\nspend DOUBLE,\nunits INTEGER,\nhappiness_tier STRING\n\n\nIn this set, the customer_id column is the primary key. Each column in the feature set has some missing values. The scientist aims to replace these missing values by imputing a common value for each feature. Which columns from the feature set should be imputed using the most common value of the column?",
+    "answers": {
+      "A": "Units",
+      "B": "Customer_id",
+      "C": "happiness_tier",
+      "D": "Spend",
+      "E": "Customer_id, happiness_tier"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A data analyst has constructed an ML pipeline utilizing a fixed input dataset with Spark ML. However, the processing time of the pipeline is excessive. To improve efficiency, the analyst expanded the number of workers in the cluster. Interestingly, they observed a discrepancy in the row count of the training set post-cluster reconfiguration compared to its count prior to the adjustment. Which strategy ensures a consistent training and test set for each model iteration?",
+    "answers": {
+      "A": "Implement manual partitioning of the input dataset",
+      "B": "Persistently store the split datasets",
+      "C": "Adjust the cluster configuration manually",
+      "D": "Prescribe a rate in the data splitting process",
+      "E": "There exists no strategy to assure consistent training and test set"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What is the purpose of using StringIndexer?",
+    "answers": {
+      "A": "Helping String Variables by adding numerical data concatenated to it",
+      "B": "To convert textual data to numeric data while keeping the categorical context",
+      "C": "Both are true",
+      "D": "None of the above"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "In Databricks AutoML, how can you navigate to the best model code across all of the model iterations?",
+    "answers": {
+      "A": "Click on the \"View Best Model\" link after running automl experiment",
+      "B": "Click on the \"View notebook for best model\" link after running automl experiment",
+      "C": "Click on the \"Get Best Model\" link after running automl experiment",
+      "D": "Click on the \"Top Model\" link after running automl experiment",
+      "E": "None of the above"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "How can you verify if the number of bins for numerical features in a Databricks Decision Tree is sufficient?",
+    "answers": {
+      "A": "Check if the number of bins is equal to or greater than the number of different category values in a column",
+      "B": "Check if the model performance is satisfactory",
+      "C": "Check if the model is overfitting",
+      "D": "Check if the number of bins is a power of 2",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "A machine learning engineer is working to upgrade a machine learning project in a way that enables automatic model refresh every time the project runs. The project is linked to an existing model referred to as model_name in the MLflow Model Registry. The following block of code is part of their approach:\n\n\nmlflow.sklearn.log_model (\nsk_model=model,\nartifact_path=\"model\",\nregistered_model_name=model_name\n)\n\n\nGiven that model_name already exists in the MLflow Model Registry, what does the parameter and argument registered_model_name=model_name denote?",
+    "answers": {
+      "A": "It eliminates the requirement of specifying the model name in the subsequent obligatory call to mlflow.register_model.",
+      "B": "It records a new model titled model_name in the MLflow Model Registry.",
+      "C": "It represents the name of the logged model in the MLflow Experiment.",
+      "D": "It registers a new version of the model_name model in the MLflow Model Registry.",
+      "E": "It denotes the name of the Run in the MLflow Experiment."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the primary use case for mapInPandas() in Databricks?",
+    "answers": {
+      "A": "Executing multiple models in parallel",
+      "B": "Applying a function to each partition of a DataFrame",
+      "C": "Applying a function to grouped data within a DataFrame",
+      "D": "Applying a function to co-grouped data from two DataFrames",
+      "E": "None of the above"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "True or False? Binning is the process of converting numeric data into categorical data",
+    "answers": {
+      "A": "True"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What is a potential downside of using Pandas API on Spark instead of PySpark?",
+    "answers": {
+      "A": "Limited support for distributed computing",
+      "B": "Inefficient data structure",
+      "C": "Increased computation time due to internal frame conversion",
+      "D": "Limited functionality compared to PySpark",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A team is formulating guidelines on when to apply various metrics for evaluating classification models. They need to decide under what circumstances the F1 score should be favored over accuracy. The F1 score formula is given as follows:\n\n\nF1 = 2 * (precision * recall) / (precision + recall)\n\n\nWhat recommendations should the team incorporate into their guidelines?",
+    "answers": {
+      "A": "The F1 score is more suitable than accuracy when the target variable has more than two categories.",
+      "B": "The F1 score is recommended over accuracy when the number of actual positive instances is equal to the number of actual negative instances.",
+      "C": "The F1 score should be favored over accuracy when there is a substantial imbalance between the positive and negative classes and minimizing false negatives is important.",
+      "D": "The F1 score is recommended over accuracy when the target variable comprises precisely two classes.",
+      "E": "The F1 score is preferable over accuracy when correctly identifying true positives and true negatives is equally critical to the business problem."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "In which scenario should you use StringIndexer?",
+    "answers": {
+      "A": "When you want the machine learning algorithm to identify a column as a categorical variable",
+      "B": "When you want to differentiate between categorical and non-categorical data without knowing the data types",
+      "C": "When you want to convert the final output column back to its textual representation",
+      "D": "When you want to perform dimensionality reduction on the input data",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "After you Instantiate FeatureStoreClient as fs. The below code gives error. How can you fix the code?\n\n\nfs.create_table(\nname=table_name,\nschema=airbnb_df.schema,\ndescription=\"All Errors are capured in this table\"\n)",
+    "answers": {
+      "A": "By adding primary_keys parameter inside fs.create_table",
+      "B": "By adding df parameter inside fs.create_table.",
+      "C": "fs.create_table(\nname=table_name,\ndf = airbnb_df,\nschema=airbnb_df.schema,\ndescription=\"All Errors are capured in this table\"\n)",
+      "D": "By changing fs.create_table to fs.write_table.",
+      "E": "By changing fs.create_table to fs.createtable."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What method can be used to view the notebook that executed an MLflow run?",
+    "answers": {
+      "A": "Open the model.pkl artifact on the MLflow run page",
+      "B": "Click the \"Models\" link corresponding to the run on the MLflow experiment page",
+      "C": "Open the MLmodel artifact on the MLflow run page",
+      "D": "Click the \"Start Time\" link corresponding to the run on the MLflow experiment page",
+      "E": "Click the \"Source\" link in the row corresponding to the run in the MLflow experiment page"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "A data scientist is working with a Spark DataFrame, named 'spark_df'. They intend to generate a new Spark DataFrame that retains only the rows from 'spark_df' where the value in the 'discount' column is less than 0. Which of the following code segments would successfully accomplish this objective",
+    "answers": {
+      "A": "spark_df.filter(col(\"discount) < 0)",
+      "B": "spark_df.find(spark_df(\"discount\") < 0)",
+      "C": "spark_df.loc[spark_df(\"discount\") < 0]",
+      "D": "spark_df.loc[spark_df(\"discount\") < 0,:]",
+      "E": "SELECT * FROM spark_df WHERE discount < 0"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "A novice data scientist has recently joined an ongoing machine learning project. The project operates as a daily retraining scheduled job, housed in a Databricks Repository. The scientist's task is to enhance the feature engineering of the pipeline's preprocessing phase. They aim to amend the code in a way that will seamlessly integrate into the project without altering the daily operations.\nWhich strategy should the data scientist adopt to successfully execute this task?",
+    "answers": {
+      "A": "Clone the project's notebooks into a separate Databricks Repository and implement the required alterations there.",
+      "B": "Temporarily halt the project's automatic daily operations and modify the existing code in its original location.",
+      "C": "Generate a new branch in Databricks, commit the changes there, and then push these modifications to the associated Git provider.",
+      "D": "Duplicate the project's notebooks into a Databricks Workspace folder and implement the necessary adjustments there.",
+      "E": "Initiate a new Git repository, integrate this into Databricks, and transfer the original code from the current repository to this new one before making modifications."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A machine learning engineer attempts to scale an ML pipeline by distributing its single-node model tuning procedure. After broadcasting the entire training data onto each core, each core in the cluster is capable of training one model at once. As the tuning process is still sluggish, the engineer plans to enhance the parallelism from 4 to 8 cores to expedite the process. Unfortunately, the total memory in the cluster can't be increased. Under which conditions would elevating the parallelism from 4 to 8 cores accelerate the tuning process?",
+    "answers": {
+      "A": "When the data has a lengthy shape",
+      "B": "When the data has a broad shape",
+      "C": "When the model can't be parallelized",
+      "D": "When the tuning process is randomized",
+      "E": "When the entire data can fit on each core"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "Why is it important to perform feature engineering before developing a machine learning model?",
+    "answers": {
+      "A": "To ensure the model is deployed correctly",
+      "B": "To reduce the need for hyperparameter tuning",
+      "C": "To preprocess the data and create features that improve model performance",
+      "D": "To select the best feature engineering techniques",
+      "E": "To automate the machine learning process"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A data scientist has crafted a feature engineering notebook that leverages the pandas library. As the volume of data processed by the notebook grows, the runtime significantly escalates and the processing speed decreases proportionally with the size of the included data. What tool can the data scientist adopt to minimize the time spent refactoring their notebook to scale with big data?",
+    "answers": {
+      "A": "Feature Store",
+      "B": "PySpark DataFrame API",
+      "C": "Spark SQL",
+      "D": "Scala Dataset API",
+      "E": "pandas API on Spark"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "A data science team is remodeling their machine learning projects to disseminate model inference. They categorize their projects based on the modeling library utilized to discern which projects will require a User-Defined Function (UDF) to distribute the inference process. Which modeling libraries among the following would necessitate a UDF for distributing model inference?",
+    "answers": {
+      "A": "All of the options",
+      "B": "MLLib",
+      "C": "None of the options",
+      "D": "Scikit-learn"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "How to Reduce Over Fitting?",
+    "answers": {
+      "A": "Early Stopping of epochs\u00e2\u20ac\u201c form of regularization while training a model with an iterative method, such as gradient descent",
+      "B": "Data Augmentation (increase the amount of training data using information only in our training data); Eg - Image scaling, rotation to find dog in image",
+      "C": "Regularization \u00e2\u20ac\u201c technique to reduce the complexity of the model",
+      "D": "Dropout is a regularization technique that prevents overfitting",
+      "E": "All of the above"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "How does Spark ML tackle a linear regression problem for an extraordinarily large dataset? Which one of the option is correct?",
+    "answers": {
+      "A": "Brute Force Algorithm",
+      "B": "Matrix decomposition",
+      "C": "Singular value decomposition",
+      "D": "Least square method",
+      "E": "Gradient descent"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "A machine learning professional plans to design a linear regression model using Spark ML to forecast car prices. They employ a Spark DataFrame (train_df) for model training. The Spark DataFrame train_df includes the following schema:\n\n\ncar_id STRING, price DOUBLE, stars DOUBLE, year_updated DOUBLE, seats DOUBLE.\n\n\nThe ML professional provides this code block:\n\n\nlr = LinearRegression\n         (\n         featuresCol = [\"stars\", \"year_updated\", \"seats\"], \n         labelCol = \"price\" \n         ) \n lr_model = lr. fit (train_df)\n\n\nWhat adjustments should the machine learning professional implement to accomplish their goal?",
+    "answers": {
+      "A": "Incorporate the lr object as a stage in a Pipeline to fit the model",
+      "B": "No alterations are required",
+      "C": "Invoke the transform method from the lr_model object on train_df",
+      "D": "Transform the stars, year updated, and seats columns into a singular vector column",
+      "E": "Define the parallelism parameter in the Linear Regression operation with a value exceeding 1"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which of the following is an example of a distributed machine learning framework?",
+    "answers": {
+      "A": "TensorFlow",
+      "B": "Spark MLlib Apache",
+      "C": "Scikit-learn",
+      "D": "XGBoost",
+      "E": "All of the above"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "In Databricks MLflow, you have retrieved the most recent run from an experiment using the MLflow client. runs = client.search_runs(experiment_id, order_by=[\"\"attributes.start_time desc\"\"], max_results=1)), How can you access the metrics of this best run?",
+    "answers": {
+      "A": "metrics = runs[0].data.metrics",
+      "B": "metrics = runs[0].get_metrics()",
+      "C": "metrics = runs[0].fetch_metrics()",
+      "D": "metrics = runs[0].metrics.data",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which statement correctly defines a Spark ML transformer?",
+    "answers": {
+      "A": "A transformer is a hyperparameter grid that aids in training a model.",
+      "B": "A transformer amalgamates multiple algorithms to transform an ML workflow.",
+      "C": "A transformer is a learning algorithm that employs a DataFrame to train a model.",
+      "D": "A transformer is an algorithm capable of converting one DataFrame into another DataFrame.",
+      "E": "A transformer is an evaluation tool utilized to assess the quality of a model."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A machine learning engineer has evaluated a new Staging version of a model in the MLflow Model Registry. After passing all the tests, the engineer would like to move this model to production by transitioning it to the Production stage in the Model Registry. From which section in Databricks Machine Learning can the engineer achieve this?",
+    "answers": {
+      "A": "From the Run page in the Experiments section",
+      "B": "From the Model page in the MLflow Model Registry",
+      "C": "From the comment feature on the notebook page where the model was developed",
+      "D": "From the Model Version page in the MLflow Model Registry",
+      "E": "From the Experiment page in the Experiments section"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the reason behind the compatibility of pandas API syntax within a Pandas UDF function when applied to a Spark DataFrame?",
+    "answers": {
+      "A": "The Pandas UDF invokes Pandas Function APIs internally",
+      "B": "The Pandas UDF utilizes pandas API on Spark within its function",
+      "C": "The pandas API syntax cannot be implemented within a Pandas UDF function on a Spark DataFrame",
+      "D": "The Pandas UDF automatically translates the function into Spark DataFrame syntax",
+      "E": "The Pandas UDF leverages Apache Arrow to convert data between Spark and pandas formats"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "A data scientist is trying to use Spark ML to fill in missing values in their PySpark DataFrame 'features_df'. They want to replace the missing values in all numeric columns in 'features_df' with the median value of each corresponding numeric column. However, the code they have written does not perform the task correctly. Can you identify the reason why the code is not performing the imputation task as intended?\n\n\nmy_imputer = imputer\n( strategy = \"median\",\ninputCols = input_columns,\noutputCols = output_columns\n)\nimputed_df = my_imputer.transform(features_df)",
+    "answers": {
+      "A": "Imputing using a median value is not possible.",
+      "B": "It does not simultaneously impute both the training and test datasets.",
+      "C": "The 'inputCols' and 'outputCols' need to match exactly.",
+      "D": "The code fails to fit the imputer to the data to create an 'ImputerModel'.",
+      "E": "The 'fit' method needs to be invoked instead of 'transform'."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "In which scenario is using single Train-Test Split better than Cross-Validation?",
+    "answers": {
+      "A": "When the goal is to maximize model performance",
+      "B": "When the goal is to ensure model stability and generalization",
+      "C": "When computation time and resources are limited",
+      "D": "When the dataset is imbalanced",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "In which of the following scenarios should you put the CrossValidator inside the Pipeline?",
+    "answers": {
+      "A": "When there are estimators or transformers in the pipeline",
+      "B": "When there is a risk of data leakage from earlier steps in the pipeline",
+      "C": "When you want to refit in the pipeline",
+      "D": "When you want to train models in parallel",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "A data scientist is carrying out hyperparameter optimization using an iterative optimization algorithm. Each assessment of unique hyperparameter values is being trained on a distinct compute node. They are conducting eight evaluations in total on eight compute nodes. Although the accuracy of the model varies across the eight evaluations, they observe that there's no consistent pattern of enhancement in the accuracy.\n\n\nWhat modifications could the data scientist make to enhance their model's accuracy throughout the tuning process?",
+    "answers": {
+      "A": "Adjust the count of compute nodes to be half or fewer than half of the number of evaluations.",
+      "B": "Switch the iterative optimization algorithm used to aid the tuning process.",
+      "C": "Adjust the count of compute nodes to be double or more than double the number of evaluations.",
+      "D": "Alter both the number of compute nodes and evaluations to be considerably smaller.",
+      "E": "Adjust both the number of compute nodes and evaluations to be substantially larger."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which in-memory columnar data format is used by Pandas API on Spark to efficiently transfer data between JVM and Python processes?",
+    "answers": {
+      "A": "Parquet",
+      "B": "ORC",
+      "C": "Avro",
+      "D": "Apache Arrow",
+      "E": "None of the above"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the main disadvantage of using one-hot encoding for high cardinality categorical variables?",
+    "answers": {
+      "A": "It increases the dimensionality of the dataset, which can lead to increased computational complexity",
+      "B": "It cannot handle missing values in categorical variables",
+      "C": "It is not suitable for continuous numerical variables",
+      "D": "It does not scale numerical variables",
+      "E": "It does not help in selecting the best machine learning algorithm"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What is the correct method to make the Python library 'fasttextnew' accessible to all notebooks run on a Databricks cluster?\n\n\nNote - fasttextnew is hypothetical new LLM package generated say 2 weeks back.",
+    "answers": {
+      "A": "Modify the cluster to utilize the Databricks Runtime for Machine Learning.",
+      "B": "It is not possible to make the 'fasttext' library available on a cluster.",
+      "C": "Adjust the 'runtime-version' variable in the Spark session to \"1\".",
+      "D": "Execute 'pip install fasttext' once on any notebook attached to the cluster.",
+      "E": "Include '/databricks/python/bin/pip install fasttextnew' in the cluster's bash initialization script."
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "Which Classification Metric would you choose when it\u00e2\u20ac\u2122s better to have false negatives for e.g. it is not fine to predict Non-Tumor as Tumor?",
+    "answers": {
+      "A": "AUC",
+      "B": "Recall",
+      "C": "Specificity",
+      "D": "F1 Score",
+      "E": "Not Applicable"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "After you Instantiate FeatureStoreClient as fs. What will be the format of table_name?\n\n\nfs.create_table(\nname=table_name,\nprimary_keys=[\"index\"],\nschema=airbnb_df.schema,\ndescription=\"All Errors are capured in this table\"\n)",
+    "answers": {
+      "A": "Within single quotes: '<database name>.<table name>'",
+      "B": "Within single quotes: '<table name>'",
+      "C": "Without any quotes: <database name>.<table name>",
+      "D": "Without any quotes: <table name>",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Given a 3-fold Cross-Validation with a grid search over a hyperparameter space consisting of 2 values for parameter A, 5 values for parameter B, and 10 values for parameter C, how many total model runs will be executed?",
+    "answers": {
+      "A": "18",
+      "B": "300",
+      "C": "50",
+      "D": "100",
+      "E": "None of the above"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "A data scientist is looking to efficiently fine-tune the hyperparameters of a scikit-learn model concurrently. They decide to leverage the Hyperopt library to assist with this process. Which tool within the Hyperopt library offers the ability to optimize hyperparameters in parallel?",
+    "answers": {
+      "A": "Fmin",
+      "B": "Search Space",
+      "C": "hp.quniform",
+      "D": "SparkTrials",
+      "E": "Trials"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A data scientist aims to one-hot encode the categorical attributes in their PySpark DataFrame, named 'features_df', by leveraging Spark ML. The list of string column names has been assigned to the 'input_columns' variable. They have prepared a block of code for this operation, but it's returning an error. What modification does the data scientist need to make in their code to achieve their goal?\n\n\noneHotEnc = OneHotEncoder(\nInputCols = input_columns,\noutputCols = output_columns\n)\n\n\noneHotEnc_model = oneHotEnc.fit(features_df)\n\n\noneHotEnc_features_df = oneHotEnc_model.transform (features_df)",
+    "answers": {
+      "A": "The columns need to be returned with the same name(s) as those in the 'input_columns'.",
+      "B": "The 'method' parameter needs to be specified in the OneHotEncoder.",
+      "C": "VectorAssembler needs to be utilized before executing the one-hot encoding of the features.",
+      "D": "StringIndexer needs to be utilized before executing the one-hot encoding of the features.",
+      "E": "The line containing the 'fit' operation needs to be removed."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A data scientist is using 3-fold cross-validation and a specific hyperparameter grid for optimizing model hyperparameters via grid search in a classification problem. The hyperparameter grid is as follows:\n\n\nHyperparameter 1 [4, 6, 7]\nHyperparameter 2 [5, 10]\n\u00ef\u00bb\u00bf\nWhat is the total number of machine learning models that can be trained simultaneously during this process?",
+    "answers": {
+      "A": "2",
+      "B": "6",
+      "C": "12",
+      "D": "18",
+      "E": "24"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which among the following tools can be utilized to enable a Bayesian hyperparameter tuning procedure for distributed Spark ML machine learning models?",
+    "answers": {
+      "A": "Hyperopt",
+      "B": "Autoscaling clusters",
+      "C": "Feature Store",
+      "D": "MLflow Experiment Tracking",
+      "E": "AutoML"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which Delta Lake write optimization technique colocates related information in the same set of files?",
+    "answers": {
+      "A": "Parameter Tuning",
+      "B": "Z-Ordering",
+      "C": "Data Skipping",
+      "D": "Partition Pruning",
+      "E": "Database indexing"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "In which of the following scenarios should you put the Pipeline inside the CrossValidator?",
+    "answers": {
+      "A": "When there are estimators or transformers in the pipeline",
+      "B": "When there is a risk of data leakage from earlier steps in the pipeline",
+      "C": "When you want to refit in the pipeline",
+      "D": "When you want to train models in parallel",
+      "E": "None of the above"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What is the primary difference between bagging and boosting in the context of ensemble methods?",
+    "answers": {
+      "A": "Bagging trains weak learners in parallel, while boosting trains them sequentially",
+      "B": "Bagging is used for classification tasks, while boosting is used for regression tasks",
+      "C": "Bagging focuses on increasing model diversity, while boosting focuses on increasing model accuracy",
+      "D": "Bagging is a linear combination of weak learners, while boosting is a non-linear combination",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "A machine learning engineer aims to parallelize the inference of group-specific models using the Pandas Function API. They've developed the 'apply_model' function that will load the appropriate model for each group and wish to apply it to each group of DataFrame 'df'. They've written the following incomplete code block:\n\n\npredictions = (df\n.groupby(\"device_id\")\n.___________(apply_model, schema=apply_return_schema)\n)\n\n\nWhich piece of code should be used to fill in the blank to accomplish the task?",
+    "answers": {
+      "A": "mapInPandas",
+      "B": "predict",
+      "C": "groupedApplyInPandas",
+      "D": "train_model",
+      "E": "applyInPandas"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "A data scientist has developed a linear regression model utilizing log(price) as the target variable.\n\n\n\u00ef\u00bb\u00bfUsing this model, they performed prediction, and the outcomes along with the actual label values are held in the Spark DataFrame named preds_df.\n\n\nThey apply the following code block to assess the model:\n\n\nregression_evaluator.setMetricName(\"rmse\").evaluate(preds_df)\n\n\nWhat adjustments should the data scientist make to the RMSE evaluation approach to make it comparable with the original price scale?",
+    "answers": {
+      "A": "They should apply the logarithm to the predictions prior to calculating the RMSE.",
+      "B": "They should calculate the MSE of the log-transformed predictions to obtain the RMSE.",
+      "C": "They should apply the exponentiation function to the predictions before calculating the RMSE.",
+      "D": "They should take the exponent of the computed RMSE value.",
+      "E": "They should compute the logarithm of the derived RMSE value."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A data scientist is utilizing Spark SQL to import data into a machine learning pipeline. Once the data is imported, the scientist gathers all their data into a pandas DataFrame and executes machine learning tasks using scikit-learn.\n\n\nWhich of the following Databricks cluster modes is the most appropriate for this specific use case?",
+    "answers": {
+      "A": "SQL Endpoint",
+      "B": "Standard",
+      "C": "High Concurrency",
+      "D": "Pooled",
+      "E": "Single Node"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "A data analyst is working on a project where they need to generate a detailed report on a DataFrame to be presented to stakeholders. The report should include count, mean, standard deviation, minimum, 25th percentile, median, 75th percentile, and maximum for each numerical column. Which Databricks command should they use?",
+    "answers": {
+      "A": "Databricks Describe",
+      "B": "Databricks Summary",
+      "C": "Both Databricks Describe and Databricks Summary would work",
+      "D": "Neither Databricks Describe nor Databricks Summary",
+      "E": "Neither Databricks Describe nor Databricks Summary"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which Classification Metric would you choose when False Positives are acceptable as long as ALL positives are found for e.g. it is fine to predict Non-Tumor as Tumor as long as All the Tumors are correctly predicted?",
+    "answers": {
+      "A": "AUC",
+      "B": "Recall",
+      "C": "Specificity",
+      "D": "None of the options"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "A data scientist intends to delve into the Spark DataFrame 'spark_df'. They wish to include visual histograms that show the distribution of numeric features in their exploration. Which single line of code should the data scientist execute to achieve this?",
+    "answers": {
+      "A": "spark_df.summary()",
+      "B": "pandas.DataFrame(spark_df).summarize()",
+      "C": "pandas.describe_data(spark_df)",
+      "D": "This task cannot be accomplished using a single line of code.",
+      "E": "dbutils.data.summarize(spark_df)"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "A data scientist is crafting a machine learning pipeline using AutoML on Databricks Machine Learning, and they've distinguished the best model in the experiment. Now, they wish to access the source code that generated the best run. What method can the scientist use to view the code responsible for creating the best model?",
+    "answers": {
+      "A": "They can click on the link in the \"Model\" field for the corresponding row in the AutoML Experiment page's table.",
+      "B": "They can click on the link in the \"Start Time\" field for the relevant row in the AutoML Experiment page's table.",
+      "C": "They can click on the \"View notebook for best model\" button in the AutoML Experiment page.",
+      "D": "They can click on the \"Share\" button in the AutoML Experiment page.",
+      "E": "There's no way to access the code that produced the best model."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A team of machine learning engineers receives three notebooks (Notebook A, Notebook B, and Notebook C) from a data scientist to set up a machine learning pipeline. Notebook A is employed for exploratory data analysis, while Notebooks B and C are used for feature engineering. For the successful execution of Notebooks B and C, Notebook A must be completed first. However, Notebooks B and C operate independently of each other. Given this setup, what would be the most efficient and reliable method for the engineering team to orchestrate this pipeline utilizing Databricks?",
+    "answers": {
+      "A": "The team could configure a three-task job where each task runs a specific notebook, with each task depending on the completion of the previous one.",
+      "B": "They could establish a three-task job where each task operates a distinct notebook, and all three tasks are executed in parallel.",
+      "C": "They could create three single-task jobs, with each job running a unique notebook, all scheduled to run concurrently.",
+      "D": "The team could arrange a three-task job where each task operates a specific notebook. The last two tasks are set to run simultaneously, each relying on the completion of the first task.",
+      "E": "The team could set up a single-task job where an orchestration notebook sequentially executes all three notebooks."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A data scientist has designed a three-class decision tree classifier utilizing Spark ML and computed the predictions in a Spark DataFrame, named preds_dt, with the following schema: prediction DOUBLE, actual DOUBLE.\n\n\nWhich code segment can be used to calculate the accuracy of the model based on the data in preds_dt and assign the result to the accuracy variable?",
+    "answers": {
+      "A": "None",
+      "B": "accuracy = MulticlassClassificationEvaluator(predictionCol=\"prediction\", labelCol=\"actual\", metricName=\"accuracy\")",
+      "C": "accuracy = RegressionEvaluator(predictionCol=\"prediction\", labelCol=\"actual\", metricName=\"accuracy\")",
+      "D": "classification_evaluator = MulticlassClassificationEvaluator(predictionCol=\"prediction\", labelCol=\"actual\", metricName=\"accuracy\")\naccuracy = classification_evaluator.evaluate(preds_df)",
+      "E": "accuracy = Summarizer(predictionCol=\"prediction\", labelCol=\"actual\", metricName=\"accuracy\")"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A data scientist employs the a code segment to refine hyperparameters for a machine learning model:\nnum evals = 5, trials = SparkTrials(), to get the best hyperparam.\n\n\nAnd for that, inside the objective function, they use the following parameters: space-search space, algo-tpe.suggest, max_evals=num_evals, trials = trials.\n\n\nWhich modification can they apply to the aforementioned code to increase the chances of obtaining a more precise model?",
+    "answers": {
+      "A": "Substitute tpe.suggest with random.suggest",
+      "B": "Boost num_evals to 50",
+      "C": "Omit the algo-tpe.suggest argument",
+      "D": "Replace faint() with fmax()",
+      "E": "Switch SparkTrials() to Trials()"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which Chart would you use to visually represent and spot outliers?",
+    "answers": {
+      "A": "Histogram",
+      "B": "Box Plot",
+      "C": "Scatter Plot",
+      "D": "All of the above",
+      "E": "None of the above"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the potential reason for the reduced performance speed when using the pandas API compared to native Spark DataFrames, especially for large datasets?",
+    "answers": {
+      "A": "The employment of an internalFrame to maintain metadata",
+      "B": "The requirement for an increased amount of code",
+      "C": "The dependence on CSV files",
+      "D": "The immediate evaluation of all processing operations",
+      "E": "The absence of data distribution"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "How do you apply a grouped map Pandas UDF to a PySpark DataFrame?",
+    "answers": {
+      "A": "By using the apply method on a DataFrame column",
+      "B": "By using the applyInPandas method on a DataFrame",
+      "C": "By using the groupBy method followed by the apply method on a DataFrame",
+      "D": "By using the groupBy method followed by the agg method on a DataFrame",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "In the context of distributed decision trees, what is the primary advantage of using an ensemble method like random forests over a single decision tree?",
+    "answers": {
+      "A": "Ensemble methods are more interpretable than single decision trees",
+      "B": "Ensemble methods are less prone to overfitting than single decision trees",
+      "C": "Ensemble methods can be trained faster than single decision trees",
+      "D": "Ensemble methods require less memory than single decision trees",
+      "E": "None of the above"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "A machine learning engineer uses the following code block to scale the inference of a single-node model on a Spark DataFrame with one million records:\n\n\n@pandas_udf(\"double\")\ndef predict(iterator: Iterator[pd.DataFrame]) -> Iterator[pd.Series]:\nmodel_path = f\"runs://(run.info.run_id)/model\"\nmodel = mlflow.sklearn.load_model(model_path)\n\n\nfor features in iterator:\npdf = pd.concat(features, axis=1)\nyield pd.Series(model.predict(pdf))\n\n\nAssuming the default Spark configuration is in place, what is the advantage of using an Iterator?",
+    "answers": {
+      "A": "The model will be restricted to a single executor, preventing the data from being distributed.",
+      "B": "The data will be restricted to a single executor, preventing the model from being loaded multiple times.",
+      "C": "The data will be distributed across multiple executors during the inference process.",
+      "D": "There's no benefit to including an Iterator as the input or output.",
+      "E": "The model only needs to be loaded once per executor rather than once per batch during the inference process."
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "In Databricks AutoML, what information can you find on the best model?",
+    "answers": {
+      "A": "Hyperparameters of the best model",
+      "B": "Performance metrics of the best model",
+      "C": "Code to reproduce the best model",
+      "D": "All of the above",
+      "E": "None of the above"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A machine learning engineer is translating a decision tree from sklearn to Spark ML. During the training process, an error occurs stating that the maxBins parameter should be at least equal to the number of values in each categorical feature. What is the reason behind Spark ML requiring the maxBins parameter to be at least as large as the number of values in each categorical feature?",
+    "answers": {
+      "A": "Spark ML requires more split candidates in the splitting algorithm than single-node implementations",
+      "B": "Spark ML requires at least one bin for each category in each categorical feature",
+      "C": "Spark ML tests only categorical features in the splitting algorithm",
+      "D": "Spark ML tests only numeric features in the splitting algorithm",
+      "E": "Spark ML imposes a limit of 32 split candidates for categorical features in the splitting algorithm"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "In which of the following cases is mean imputation most appropriate for handling missing values?",
+    "answers": {
+      "A": "When the data is missing at random",
+      "B": "When the data is missing not at random",
+      "C": "When the data is missing completely at random",
+      "D": "When the data is missing systematically",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A data scientist has developed three new models for a singular machine learning problem, replacing a solution that previously used a single model. All four models have roughly identical prediction latency. However, a machine learning engineer suggests that the new solution will be less time efficient during inference. Under what circumstances would the engineer's observation be correct?",
+    "answers": {
+      "A": "When the average size of the new solution's models exceeds the size of the original model",
+      "B": "When the new solution necessitates each model to compute a prediction for every record",
+      "C": "When the new solution's models have an average latency that is larger than the latency of the original model",
+      "D": "When the new solution involves if-else logic determining which model to employ for each prediction",
+      "E": "When the new solution requires fewer feature variables than the original model"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following is NOT an advantage of using the Tree-structured Parzen Estimator (TPE) search algorithm say with Hyperopt over conventional grid search?",
+    "answers": {
+      "A": "TPE search is less computationally expensive for large search spaces",
+      "B": "TPE search can handle continuous and conditional hyperparameters more easily",
+      "C": "TPE search can automatically select the best machine learning algorithm for a given problem",
+      "D": "TPE search can converge to optimal hyperparameter combinations more quickly",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which of the following is a primary benefit of having Apache Arrow inside Pandas API on Spark?",
+    "answers": {
+      "A": "Arrow allows for efficient data transfer between JVM and Python processes.",
+      "B": "Arrow automatically optimizes Spark SQL queries.",
+      "C": "Arrow enables the use of non-columnar data formats.",
+      "D": "Arrow performs faster joins between DataFrames.",
+      "E": "None of the above."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following techniques is NOT suitable for imputing missing values in a continuous numerical variable?",
+    "answers": {
+      "A": "Mean imputation",
+      "B": "Median imputation",
+      "C": "Mode imputation",
+      "D": "K-Nearest Neighbors imputation",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What are the standard evaluation metrics automatically computed for each run in an AutoML experiment when dealing with classification problems?",
+    "answers": {
+      "A": "All of these",
+      "B": "Accuracy",
+      "C": "Area Under the ROC Curve (AUC-ROC)",
+      "D": "Recall",
+      "E": "F1 Score"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "In Databricks, what information can you find on the run detail page?",
+    "answers": {
+      "A": "The input parameters used for the run",
+      "B": "The performance metrics recorded during the run",
+      "C": "The model artifacts generated by the run",
+      "D": "All of the above",
+      "E": "None of the above"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A data scientist is using one-hot encoding to convert categorical feature values in a training set for a random forest regression model. However, a coworker suggests that one-hot encoding should not be used for tree-based models. Can you explain why one-hot encoding should be avoided when creating a random forest model?",
+    "answers": {
+      "A": "It minimizes the significance of one-hot encoded feature variables in the feature sampling process.",
+      "B": "It leads to a less dense training set, making scalability a challenge.",
+      "C": "It generates a denser training set, which may pose scalability issues.",
+      "D": "It is computationally demanding and may result in inefficient splitting algorithms due to the need to try many split values.",
+      "E": "It accentuates one-hot encoded feature variables in the feature sampling process and may result in less informative trees."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which of the following issues can arise when using one-hot encoding (OHE) with tree-based models?",
+    "answers": {
+      "A": "Inducing sparsity in the dataset",
+      "B": "None of the options",
+      "C": "Limiting the number of split options for categorical variables",
+      "D": "Both"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is data parallelism in the context of distributed machine learning?",
+    "answers": {
+      "A": "Training multiple models simultaneously on different subsets of data",
+      "B": "Training a single model on multiple subsets of data simultaneously",
+      "C": "Training multiple models sequentially on different subsets of data",
+      "D": "Training a single model on the entire dataset sequentially",
+      "E": "None of the above"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "In Databricks, which of the following components is used to transform a column of scalar values into a column of vector type, as required by an estimator's .fit() method?",
+    "answers": {
+      "A": "VectorScaler",
+      "B": "VectorConverter",
+      "C": "VectorAssembler",
+      "D": "VectorTransformer",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Utilizing MLflow Autologging, a data scientist is automatically monitoring their machine learning experiments. Once a series of experiment runs for the experiment_id are completed, the scientist intends to pinpoint the run exhibiting the best root-mean-square error (RMSE). To do so, they have initiated the following incomplete code snippet:\n\n\nmlflow._________(experiment_id, order_by = [\"metrics.rmse\"]) [\"run_id\"] [0]\n\n\nWhat piece of code should the data scientist utilize in the blank space above to successfully complete the code block and identify the run with the best RMSE?",
+    "answers": {
+      "A": "Client",
+      "B": "search_runs",
+      "C": "experiment",
+      "D": "identify_run",
+      "E": "show_runs"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following is NOT a hyperparameter in a machine learning algorithm?",
+    "answers": {
+      "A": "Learning rate",
+      "B": "Regularization parameter",
+      "C": "Number of trees in a random forest",
+      "D": "Coefficients of a linear regression model",
+      "E": "Number of hidden layers in a neural network"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which of the listed methods for hyperparameter optimization employs the tactic of making educated selections of hyperparameter values, based on the results of previous trials, for each successive model evaluation?",
+    "answers": {
+      "A": "Grid Search Optimization",
+      "B": "Random Search Optimization",
+      "C": "Halving Random Search Optimization",
+      "D": "Manual Search Optimization",
+      "E": "Tree of Parzen Estimators Optimization"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "A machine learning engineer is aiming to execute batch model prediction. The engineer intends to leverage a decision tree model stored at the path model_uri to generate predictions for the DataFrame batch_df, which has the schema:\norder_id STRING\nTo perform prediction on batch_df using the decision tree model at model_uri, the following code block is executed:\npredictions = fs.score_batch(\nmodel_uri,\nbatch_df\n)\nUnder what circumstances will the engineer's code block successfully perform the desired prediction?",
+    "answers": {
+      "A": "This code block will not achieve the desired prediction in any situation.",
+      "B": "When the model at model_uri uses only order_id as a feature.",
+      "C": "When the features required by the model at model_uri are available in the Feature Store and can be automatically joined with batch_df",
+      "D": "When the Feature Store automatically detects and creates missing features necessary for the model at model_uri during the scoring process",
+      "E": "When all of the features utilized by the model at model_uri are present in a Spark DataFrame in the PySpark session."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A data scientist employs MLflow for tracking their machine learning experiment. As part of each MLflow run, they conduct hyperparameter tuning. The scientist wishes to organize one parent run for the tuning procedure and have a child run for each unique combination of hyperparameter values. They manually initiate all parent and child runs using 'mlflow.start_run()'.\n\n\nWhich methodology should the data scientist adopt to achieve this MLflow run organization?",
+    "answers": {
+      "A": "They could initiate each child run with the identical experiment ID as the parent run.",
+      "B": "They could specify 'nested=True' when initiating the child run for each unique combination of hyperparameter values.",
+      "C": "They could begin each child run inside the indented code block of the parent run using 'mlflow.start_run()'.",
+      "D": "They could enable Databricks Autologging.",
+      "E": "They could specify 'nested=True' when initiating the parent run for the tuning process."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following is NOT a valid stage in an Apache Spark MLlib Pipeline?",
+    "answers": {
+      "A": "An Estimator",
+      "B": "A transformer",
+      "C": "A DataFrame",
+      "D": "Another Pipeline"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which of the following statements is true regarding the effect of one-hot encoding on tree-based models?",
+    "answers": {
+      "A": "It increases the number of levels for categorical variables, improving model performance",
+      "B": "It improves the performance of tree-based models by increasing split options",
+      "C": "It induces sparsity in the dataset, which can be undesirable for tree-based models",
+      "D": "It decreases the computational complexity of tree-based models",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A data analyst wants to generate a comprehensive report on a DataFrame, including count, mean, standard deviation, minimum, 25th percentile, median, 75th percentile, and maximum for each numerical column. Which Databricks command should they use?",
+    "answers": {
+      "A": "Databricks Describe",
+      "B": "Databricks Summary",
+      "C": "Both Databricks Describe and Databricks Summary would work",
+      "D": "Neither Databricks Describe nor Databricks Summary",
+      "E": "Databricks Aggregation"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "100. Which of the following best describes the role of an Estimator in Apache Spark MLlib?",
+    "answers": {
+      "A": "A set of transformation rules applied to the input data",
+      "B": "An algorithm that can be fit on a dataset to produce a model",
+      "C": "A trained model that can be used to make predictions",
+      "D": "A sequence of data preprocessing steps and machine learning algorithms",
+      "E": "None of the above"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "101.Which of the following is the key benefit of using Databricks clusters for machine learning tasks?",
+    "answers": {
+      "A": "Improved data storage capabilities",
+      "B": "Simplified data visualization",
+      "C": "Faster model training and evaluation",
+      "D": "Enhanced data cleaning",
+      "E": "Better collaboration among team members"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "102.Which of the following hyperparameter tuning techniques is most computationally efficient?",
+    "answers": {
+      "A": "Grid search",
+      "B": "Random search",
+      "C": "Random descent",
+      "D": "None of the above"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "103.What is model parallelism in the context of distributed machine learning?",
+    "answers": {
+      "A": "Training multiple models simultaneously on different subsets of data",
+      "B": "Training a single model on multiple subsets of data simultaneously",
+      "C": "Training multiple models sequentially on different subsets of data",
+      "D": "Dividing the model into smaller parts and processing each part on a separate node or processor",
+      "E": "None of the above"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "104.In Apache Spark MLlib, which of the following is NOT a valid evaluation metric for a classification problem?",
+    "answers": {
+      "A": "Accuracy",
+      "B": "F1 score",
+      "C": "Root Mean Squared Error (RMSE)",
+      "D": "Area Under the Receiver Operating Characteristic Curve (AUC-ROC)",
+      "E": "Precision"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "105.In a distributed machine learning system in regards to Data, what is the primary purpose of load balancing?",
+    "answers": {
+      "A": "To ensure that each node processes an equal amount of data",
+      "B": "To optimize the distribution of data to minimize communication overhead between nodes",
+      "C": "To prevent overfitting by training the model on different subsets of data",
+      "D": "To improve model interpretability by training separate models on different subsets of data",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "106.Which of the following is NOT a common summary statistic used in exploratory data analysis?",
+    "answers": {
+      "A": "Mean",
+      "B": "Median",
+      "C": "Mode",
+      "D": "Standard deviation",
+      "E": "R-squared"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "107.Which of the following is an example of a hyperparameter in a support vector machine (SVM) algorithm?",
+    "answers": {
+      "A": "Kernel function",
+      "B": "Support vectors",
+      "C": "Decision boundary",
+      "D": "Margin",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "108.When using Pandas UDFs in PySpark, which of the following factors can impact performance?",
+    "answers": {
+      "A": "The number of partitions in the input DataFrame",
+      "B": "The size of each partition in the input DataFrame",
+      "C": "The complexity of the user-defined function",
+      "D": "The amount of available memory on the cluster",
+      "E": "All of the above"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "109.In distributed machine learning, what is the primary purpose of data partitioning?",
+    "answers": {
+      "A": "To reduce the risk of overfitting by training the model on different subsets of data",
+      "B": "To improve model interpretability by training separate models on different subsets of data",
+      "C": "To speed up training by dividing the dataset into smaller parts that can be processed simultaneously",
+      "D": "To enhance model performance with small datasets",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "110.Which of the following is NOT a feature of Databricks Jobs?",
+    "answers": {
+      "A": "Running notebooks",
+      "B": "Scheduling jobs",
+      "C": "Monitoring job performance",
+      "D": "Storing data",
+      "E": "Running Spark jobs"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "111.Which of the following is NOT a reason to use decision trees in a distributed machine learning context?",
+    "answers": {
+      "A": "Decision trees are easy to interpret and visualize",
+      "B": "Decision trees can handle both continuous and categorical features",
+      "C": "Decision trees can automatically handle missing values",
+      "D": "Decision trees can be efficiently parallelized at the node level",
+      "E": "None of the above"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "112.When is it more appropriate to use a single model instead of an ensemble of models with small variations?",
+    "answers": {
+      "A": "When the training time needs to be minimized.",
+      "B": "When the dataset is highly imbalanced, and the models are prone to overfitting.",
+      "C": "When the models have a high variance and low bias.",
+      "D": "When the model's performance is already satisfactory and the estimation time is a concern.",
+      "E": "When the model's complexity is already very high and increasing it would lead to overfitting."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "113. Which of the following is a potential disadvantage of using distributed machine learning for small datasets?",
+    "answers": {
+      "A": "Increased risk of overfitting",
+      "B": "Reduced model interpretability",
+      "C": "Communication overhead between nodes may outweigh the benefits of parallel processing",
+      "D": "Inability to train complex models",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "114.In Databricks, which resource is responsible for executing Spark applications?",
+    "answers": {
+      "A": "Notebooks",
+      "B": "MLflow",
+      "C": "Clusters",
+      "D": "Jobs",
+      "E": "Repos"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "115. What is the primary advantage of using bagging over boosting?",
+    "answers": {
+      "A": "None of the above",
+      "B": "Bagging is less sensitive to noisy data and outliers",
+      "C": "Bagging is computationally less expensive",
+      "D": "Bagging can be used for both classification and regression tasks"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "116.What is the primary purpose of the transform method in Apache Spark MLlib?",
+    "answers": {
+      "A": "To apply a set of transformation rules to input data",
+      "B": "To train an Estimator on a dataset and produce a Transformer",
+      "C": "To make predictions using a trained Transformer",
+      "D": "To define the sequence of stages in a Pipeline",
+      "E": "All of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "117.How can you create a Pandas API on Spark DataFrame from a PySpark DataFrame?",
+    "answers": {
+      "A": "Use the ps.DataFrame(spark_df) method",
+      "B": "Use the spark_df.to_pandas_on_spark() method",
+      "C": "None",
+      "D": "Both "
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "118.What is a benefit of using auto-scaling clusters in Databricks Runtime for Machine Learning?",
+    "answers": {
+      "A": "Automatic adjustment of cluster size based on workload",
+      "B": "Simplified data visualization",
+      "C": "Faster data storage",
+      "D": "Enhanced collaboration",
+      "E": "Streamlined task scheduling"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "119.What is a common challenge faced by AutoML systems?",
+    "answers": {
+      "A": "Limited support for custom models",
+      "B": "Inability to handle large datasets",
+      "C": "Poor performance on classification tasks",
+      "D": "Difficulty with time-series forecasting",
+      "E": "None of the options"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "120.What is the primary purpose of feature engineering in machine learning?",
+    "answers": {
+      "A": "To optimize model performance",
+      "B": "To preprocess the data and create features that improve model performance",
+      "C": "To select the best machine learning algorithm",
+      "D": "To automate the machine learning process",
+      "E": "To deploy machine learning models"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "121.Which of the following techniques is most suitable for handling missing values in a categorical variable?",
+    "answers": {
+      "A": "Mean imputation",
+      "B": "Median imputation",
+      "C": "Mode imputation",
+      "D": "Standard deviation imputation",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "122.In Databricks AutoML, which default metric is used to evaluate the performance of classification models?",
+    "answers": {
+      "A": "Accuracy",
+      "B": "Precision",
+      "C": "Recall",
+      "D": "F1 score",
+      "E": "None of the above"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "123.Which task cannot be directly executed via user request on the Databricks AutoML UI?",
+    "answers": {
+      "A": "Classification",
+      "B": "Regression",
+      "C": "Forecasting",
+      "D": "Data transformation",
+      "E": "None of the above"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "124.Which of the following is NOT a typical step in exploratory data analysis?",
+    "answers": {
+      "A": "Calculating summary statistics",
+      "B": "Removing outliers",
+      "C": "Imputing missing values",
+      "D": "Tuning hyperparameters",
+      "E": "Visualizing data"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "125.What is the purpose of the fmin function in Hyperopt?",
+    "answers": {
+      "A": "To define the search space for hyperparameter optimization",
+      "B": "To minimize the objective function by searching for optimal hyperparameter combinations",
+      "C": "To calculate the fitness of a particular hyperparameter combination",
+      "D": "To initialize the search algorithm with a set of candidate hyperparameter combinations",
+      "E": "None of the above"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "126.What is the primary purpose of the Hyperopt library?",
+    "answers": {
+      "A": "To train and evaluate machine learning models",
+      "B": "To distribute data processing tasks across multiple nodes in a cluster",
+      "C": "To optimize hyperparameters for machine learning models",
+      "D": "To implement advanced machine learning algorithms",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "127.In Apache Spark MLlib, what is the purpose of a Pipeline?",
+    "answers": {
+      "A": "To store a set of transformation rules that can be applied to input data",
+      "B": "To define an algorithm that can be fit on a dataset to produce a model",
+      "C": "To represent a trained model that can be used to make predictions",
+      "D": "To specify a sequence of data preprocessing steps and machine learning algorithms",
+      "E": "None of the above"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "128.If you perform a 3-fold Cross-Validation with 6 different hyperparameter combinations, how many total model runs will be executed?",
+    "answers": {
+      "A": "18",
+      "B": "30",
+      "C": "50",
+      "D": "90",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "129.How does a feature store help speed up the machine learning process?",
+    "answers": {
+      "A": "By automating data preprocessing",
+      "B": "By providing a centralized repository for preprocessed features",
+      "C": "By offering faster data storage solutions",
+      "D": "By simplifying data visualization",
+      "E": "By streamlining task scheduling"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "130.What is the main goal of exploratory data analysis?",
+    "answers": {
+      "A": "To select the best machine learning algorithm",
+      "B": "To understand the data and inform further data preprocessing and modeling decisions",
+      "C": "To optimize model performance",
+      "D": "To automate the machine learning process",
+      "E": "To deploy machine learning models"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "131.Which of the following is a common hyperparameter tuning technique?",
+    "answers": {
+      "A": "Grid search",
+      "B": "Feature selection",
+      "C": "One-hot encoding",
+      "D": "Principal component analysis",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "132. How can you create a new Databricks cluster?",
+    "answers": {
+      "A": "By using the Databricks API",
+      "B": "By using the Databricks CLI",
+      "C": "By using the Databricks workspace UI",
+      "D": "All of the above",
+      "E": "None of the above"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "133. Which of the following libraries is NOT included in Databricks Runtime for Machine Learning in latest ML DBR releases?",
+    "answers": {
+      "A": "TensorFlow",
+      "B": "PyTorch",
+      "C": "XGBoost",
+      "D": "LightGBM",
+      "E": "Hadoop"
+    },
+    "correct_answer": "E"
+  },
+  {
+    "question": "134.Which Databricks visualization type is NOT based on the entire dataset on default first run?",
+    "answers": {
+      "A": "Histogram",
+      "B": "Kernel density estimation (KDE) plot",
+      "C": "Box plot",
+      "D": "Scatter plot",
+      "E": "None of the above"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "135. Which of the following Delta Lake write optimizations is most effective for storing data associated with different categorical values in separate directories?",
+    "answers": {
+      "A": "Partitioning",
+      "B": "Z-Ordering",
+      "C": "Data Skipping",
+      "D": "Partition Pruning",
+      "E": "Database indexing"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "136. What are Type 1 errors?",
+    "answers": {
+      "A": "FP",
+      "B": "FN",
+      "C": "TP",
+      "D": "TN",
+      "E": "None"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "137. How does MLflow Tracking improve model development?",
+    "answers": {
+      "A": "By automating data preprocessing",
+      "B": "By providing version control for features",
+      "C": "By recording and organizing experiments, parameters, and results during the model development process",
+      "D": "By simplifying data visualization",
+      "E": "By streamlining task scheduling"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "138. Which of the following is a primary benefit of distributed machine learning?",
+    "answers": {
+      "A": "Improved model interpretability",
+      "B": "Reduced risk of overfitting",
+      "C": "Faster training and prediction times for large datasets",
+      "D": "Enhanced model performance with small datasets",
+      "E": "None of the above"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "139. What is the main difference between an Estimator and a Transformer in Apache Spark MLlib?",
+    "answers": {
+      "A": "Estimators represent algorithms that can be fit on datasets, while Transformers represent trained models that can make predictions.",
+      "B": "Estimators represent trained models that can make predictions, while Transformers represent algorithms that can be fit on datasets.",
+      "C": "Estimators represent sequences of data preprocessing steps, while Transformers represent machine learning algorithms.",
+      "D": "Estimators represent data preprocessing steps, while Transformers represent sequences of data preprocessing steps and machine learning algorithms.",
+      "E": "None of the above"
+    },
+    "correct_answer": "A"
+  }
+]

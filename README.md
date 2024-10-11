@@ -39,9 +39,9 @@ python create_database.py
 Query the Chroma DB.
 
 ```python
-python query_data.py "How does Alice meet the Mad Hatter?"
+python query_data.py "What is ensemble learning?"
 ```
 
 > You'll also need to set up an OpenAI account (and set the OpenAI key in your environment variable) for this to work.
 
-Here is a step-by-step tutorial video: [RAG+Langchain Python Project: Easy AI/Chat For Your Docs](https://www.youtube.com/watch?v=tcqEUSNCn8I&ab_channel=pixegami).
+This project is in adaptation of the following project: [RAG+Langchain Python Project: Easy AI/Chat For Your Docs](https://www.youtube.com/watch?v=tcqEUSNCn8I&ab_channel=pixegami). It is created into a streamlit app for study purposes for Databricks ML Associate Certification.
