@@ -5,15 +5,13 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 from extract_MD import url_dict
-import sys
-import os
-import importlib.util
-import openai
+
+
 
 
 # Load environment variables
 load_dotenv()
-openai.api_key = os.environ["OPENAI_API_KEY"]
+
 CHROMA_PATH = "chroma"
 
 PROMPT_TEMPLATE = """
