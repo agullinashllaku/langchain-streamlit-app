@@ -7,7 +7,7 @@ unstructured # Document loading
 # For Windows users, install Microsoft Visual C++ Build Tools first
 # install onnxruntime before installing `chromadb`
 chromadb # Vector storage
-openai# For embeddings
+openai # For embeddings
 tiktoken  # For embeddings 
 docx
 html2text
