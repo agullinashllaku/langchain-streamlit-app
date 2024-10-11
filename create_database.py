@@ -11,7 +11,7 @@ import json
 
 # Load environment variables. Assumes that project contains .env file with API keys
 load_dotenv()
-openai.api_key = os.environ["OPENAI_API_KEY"]
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 CHROMA_PATH = "chroma"
 MD_DATA_PATH = "data/markdown"
