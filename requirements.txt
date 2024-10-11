@@ -13,3 +13,4 @@ docx
 html2text
 langchain_chroma
 # install markdown depenendies with: `pip install "unstructured[md]"` after install the requirements file. Leave this line commented out. 
+pysqlite3
