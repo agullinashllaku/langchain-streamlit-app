@@ -11,5 +11,5 @@ openai==1.31.1 # For embeddings
 tiktoken==0.7.0  # For embeddings 
 docx
 html2text
-langchain_chroma==0.0.8
+langchain_chroma==0.1.4
 # install markdown depenendies with: `pip install "unstructured[md]"` after install the requirements file. Leave this line commented out. 
