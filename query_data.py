@@ -4,7 +4,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
-from extract_MD import url_dict
+from extract_MD import url_dict, db_rows
 import openai
 import os
 
@@ -37,7 +37,7 @@ def main():
 
     # User input
     query_text = st.text_area("Question", "")
-
+    st.write(db_rows)
     if st.button("Get Answer"):
         if query_text:
             # Prepare the DB
@@ -47,6 +47,7 @@ def main():
             )
 
             results = db.similarity_search_with_relevance_scores(query_text, k=4)
+            st.write()
             if len(results) == 0:
                 st.write("There are no docs available")
             elif results[0][1] < 0.6:

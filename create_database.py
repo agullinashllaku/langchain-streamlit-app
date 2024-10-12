@@ -71,7 +71,8 @@ def save_to_chroma(chunks: list[Document]):
     )
     db.persist()
     print(f"Saved {len(chunks)} chunks to {CHROMA_PATH}.")
-
+    db_rows = len(db.get_all())
+    
 
 if __name__ == "__main__":
     main()
