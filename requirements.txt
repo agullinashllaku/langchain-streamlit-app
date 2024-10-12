@@ -14,3 +14,5 @@ unstructured # Document loading
 chromadb==0.4.0 # Vector storage
 openai # For embeddings
 tiktoken  # For embeddings 
+shutil
+streamlit
