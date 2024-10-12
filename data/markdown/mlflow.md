@@ -1,4 +1,4 @@
-  * __[![MLflow](../_static/MLflow-logo-final-black.png)](../index.html) 2.17.0rc0
+  * __[![MLflow](../_static/MLflow-logo-final-black.png)](../index.html) 2.17.0
 
 [![](../_static/icons/nav-home.svg) MLflow](../index.html)
 
@@ -3684,7 +3684,7 @@ A [`mlflow.entities.Trace`](mlflow.entities.html#mlflow.entities.Trace
 `mlflow.``search_traces`(_experiment_ids : Optional[List[str]] = None_,
 _filter_string : Optional[str] = None_, _max_results : Optional[int] = None_,
 _order_by : Optional[List[str]] = None_, _extract_fields : Optional[List[str]]
-= None_) ->
+= None_, _run_id : Optional[str] = None_) ->
 pandas.DataFrame[[source]](../_modules/mlflow/tracing/fluent.html#search_traces)
 
     
@@ -3744,6 +3744,8 @@ enclosed in backticks. For example:
     extract_fields = ["`span.name`.inputs.`field.name`"]
     
 
+  * **run_id** â A run id to scope the search. When a trace is created under an active run, it will be associated with the run and you can filter on the run id to retrieve the trace. See the example below for how to filter traces by run id.
+
 Returns
 
     
@@ -3779,6 +3781,24 @@ Search traces with extract_fields and non-dictionary span inputs and outputs
     mlflow.search_traces(
         extract_fields=["non_dict_span.inputs", "non_dict_span.outputs"],
     )
+    
+
+Search traces by run ID
+
+    
+    
+    import mlflow
+    
+    
+    @mlflow.trace
+    def traced_func(x):
+        return x + 1
+    
+    
+    with mlflow.start_run() as run:
+        traced_func(1)
+    
+    mlflow.search_traces(run_id=run.info.run_id)
     
 
 `mlflow.``get_current_active_span`() ->
