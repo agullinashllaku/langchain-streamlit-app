@@ -5,8 +5,6 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 from extract_MD import url_dict
-from create_database import db_rows
-import openai
 import os
 
 
@@ -38,17 +36,26 @@ def main():
 
     # User input
     query_text = st.text_area("Question", "")
-    st.write(db_rows)
+
     if st.button("Get Answer"):
         if query_text:
             # Prepare the DB
-            embedding_function = OpenAIEmbeddings()
-            db = Chroma(
-                persist_directory=CHROMA_PATH, embedding_function=embedding_function
-            )
+            # embedding_function = OpenAIEmbeddings()
+            # db = Chroma(
+            #     persist_directory=CHROMA_PATH, embedding_function=embedding_function
+            # )
 
-            results = db.similarity_search_with_relevance_scores(query_text, k=4)
-            st.write()
+            # results = db.similarity_search_with_relevance_scores(query_text, k=4)
+            # st.write()
+            configuration = {
+                "client_type": "PersistentClient",
+                "path": CHROMA_PATH
+            }
+            collection_name = "documents_collection"
+            conn = st.experimental_connection("chromadb", **configuration)
+            # Limit the results to 4 using k=4
+            results = conn.retrieve(collection_name=collection_name, query=query_text)[:4]
+            
             if len(results) == 0:
                 st.write("There are no docs available")
             elif results[0][1] < 0.6:

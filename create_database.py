@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 import os
 import shutil
 import json
+import streamlit as st
 
 # Load environment variables. Assumes that project contains .env file with API keys
 load_dotenv()
@@ -17,10 +18,7 @@ CHROMA_PATH = "chroma"
 MD_DATA_PATH = "data/markdown"
 JSON_DATA_PATH = "data/json/test-bank.json"
 
-db_rows = 0
 def main():
-    global db_rows
-    db_rows = generate_data_store()
     generate_data_store()
 
 
@@ -29,7 +27,7 @@ def generate_data_store():
     json_documents = load_json_documents(JSON_DATA_PATH)
     documents.extend(json_documents)
     chunks = split_text(documents)
-    return save_to_chroma(chunks)
+    save_to_chroma(chunks)
 
 
 def load_documents():
@@ -66,15 +64,28 @@ def save_to_chroma(chunks: list[Document]):
     # Clear out the database first.
     if os.path.exists(CHROMA_PATH):
         shutil.rmtree(CHROMA_PATH)
+        
+    configuration = {
+        "client_type": "PersistentClient",
+        "path": CHROMA_PATH
+    }
+
+    collection_name = "documents_collection"
+    
+    conn = st.experimental_connection("chromadb", **configuration)
+    conn.create_collection(collection_name=collection_name, embedding_function_name="OpenAIEmbedding")
+    
+    # Add documents to collection
+    # Assuming 'upload_document' is part of the ChromaDBConnection API for simplicity
+    conn.upload_document(chunks, collection_name=collection_name)
 
     # Create a new DB from the documents.
-    db = Chroma.from_documents(
-        chunks, OpenAIEmbeddings(), persist_directory=CHROMA_PATH
-    )
-    db.persist()
+    # db = Chroma.from_documents(
+    #     chunks, OpenAIEmbeddings(), persist_directory=CHROMA_PATH
+    # )
+    # db.persist()
     print(f"Saved {len(chunks)} chunks to {CHROMA_PATH}.")
-    db_rows = len(db.get_all())
-    return db_rows
+
 
 if __name__ == "__main__":
     main()
