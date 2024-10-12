@@ -72,7 +72,7 @@ def save_to_chroma(chunks: list[Document]):
 
     collection_name = "documents_collection"
     
-    conn = st.experimental_connection("chromadb", **configuration)
+    conn = st.connection("chromadb", **configuration)
     conn.create_collection(collection_name=collection_name, embedding_function_name="OpenAIEmbedding")
     
     # Add documents to collection

@@ -52,7 +52,7 @@ def main():
                 "path": CHROMA_PATH
             }
             collection_name = "documents_collection"
-            conn = st.experimental_connection("chromadb", **configuration)
+            conn = st.connection("chromadb", **configuration)
             # Limit the results to 4 using k=4
             results = conn.retrieve(collection_name=collection_name, query=query_text)[:4]
             
