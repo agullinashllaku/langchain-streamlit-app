@@ -47,10 +47,10 @@ def main():
             )
 
             results = db.similarity_search_with_relevance_scores(query_text, k=4)
-            if results[0][1] < 0.6:
-                st.write("Unable to find matching results.")
-            elif len(results) == 0:
+            if len(results) == 0:
                 st.write("There are no docs available")
+            elif results[0][1] < 0.6:
+                st.write("Unable to find matching results.")
             else:
                 context_text = "\n\n---\n\n".join(
                     [doc.page_content for doc, _score in results]
