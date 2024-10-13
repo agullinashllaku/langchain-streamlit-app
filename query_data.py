@@ -5,7 +5,7 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 from extract_MD import url_dict
-from create_database import chunks
+import create_database
 import openai
 import os
 
