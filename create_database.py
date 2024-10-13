@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 import os
 import shutil
 import json
-import streamlit as st
 
 # Load environment variables. Assumes that project contains .env file with API keys
 load_dotenv()
@@ -17,6 +16,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 CHROMA_PATH = "chroma"
 MD_DATA_PATH = "data/markdown"
 JSON_DATA_PATH = "data/json/test-bank.json"
+
 
 def main():
     generate_data_store()
@@ -64,26 +64,12 @@ def save_to_chroma(chunks: list[Document]):
     # Clear out the database first.
     if os.path.exists(CHROMA_PATH):
         shutil.rmtree(CHROMA_PATH)
-        
-    configuration = {
-        "client_type": "PersistentClient",
-        "path": CHROMA_PATH
-    }
-
-    collection_name = "documents_collection"
-    
-    conn = st.connection("chromadb", **configuration)
-    conn.create_collection(collection_name=collection_name, embedding_function_name="OpenAIEmbedding")
-    
-    # Add documents to collection
-    # Assuming 'upload_document' is part of the ChromaDBConnection API for simplicity
-    conn.upload_document(chunks, collection_name=collection_name)
 
     # Create a new DB from the documents.
-    # db = Chroma.from_documents(
-    #     chunks, OpenAIEmbeddings(), persist_directory=CHROMA_PATH
-    # )
-    # db.persist()
+    db = Chroma.from_documents(
+        chunks, OpenAIEmbeddings(), persist_directory=CHROMA_PATH
+    )
+    db.persist()
     print(f"Saved {len(chunks)} chunks to {CHROMA_PATH}.")
 
 
