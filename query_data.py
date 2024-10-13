@@ -5,7 +5,7 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 from extract_MD import url_dict
-import create_database
+from create_database import generate_data_store
 import openai
 import os
 
@@ -35,7 +35,8 @@ def main():
     st.write(
         "Enter your question for any topic related to Databricks ML Associate certification:"
     )
-    # st.write(len(chunks))
+    chunks = generate_data_store()
+    st.write(len(chunks))
     # User input
     query_text = st.text_area("Question", "")
 

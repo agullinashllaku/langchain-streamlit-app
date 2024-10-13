@@ -28,7 +28,7 @@ def generate_data_store():
     documents.extend(json_documents)
     chunks = split_text(documents)
     save_to_chroma(chunks)
-
+    return chunks
 
 def load_documents():
     loader = DirectoryLoader(MD_DATA_PATH, glob="*.md")
