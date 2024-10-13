@@ -34,7 +34,7 @@ def main():
     st.write(
         "Enter your question for any topic related to Databricks ML Associate certification:"
     )
-
+    st.write(len(url_dict))
     # User input
     query_text = st.text_area("Question", "")
 
