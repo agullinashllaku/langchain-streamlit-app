@@ -5,7 +5,6 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 from extract_MD import url_dict
-
 import openai
 import os
 
@@ -15,7 +14,7 @@ import os
 # Load environment variables
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
-CHROMA_PATH = "/tmp/chroma"
+CHROMA_PATH = "chroma"
 
 
 PROMPT_TEMPLATE = """
@@ -43,7 +42,8 @@ def main():
         if query_text:
             # Prepare the DB
             embedding_function = OpenAIEmbeddings()
-            db = Chroma(embedding_function=embedding_function
+            db = Chroma(
+                persist_directory=CHROMA_PATH, embedding_function=embedding_function
             )
 
             results = db.similarity_search_with_relevance_scores(query_text, k=4)
