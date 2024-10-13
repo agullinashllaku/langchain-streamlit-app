@@ -13,7 +13,7 @@ import json
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-CHROMA_PATH = "chroma"
+CHROMA_PATH = "/tmp/chroma"
 MD_DATA_PATH = "data/markdown"
 JSON_DATA_PATH = "data/json/test-bank.json"
 
