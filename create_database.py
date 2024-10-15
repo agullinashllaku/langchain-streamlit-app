@@ -24,8 +24,8 @@ def main():
 
 def generate_data_store():
     documents = load_documents()
-    json_documents = load_json_documents(JSON_DATA_PATH)
-    documents.extend(json_documents)
+    # json_documents = load_json_documents(JSON_DATA_PATH)
+    # documents.extend(json_documents)
     chunks = split_text(documents)
     save_to_chroma(chunks)
 
@@ -35,17 +35,17 @@ def load_documents():
     documents = loader.load()
     return documents
 
-def load_json_documents(file_path):
-    documents = []
-    with open(file_path, 'r') as f:
-        data = json.load(f)
-        for item in data:
-            # Combine question and answers into a single string
-            question = item['question']
-            answers = '\n'.join([f"{key}: {value}" for key, value in item['answers'].items()])
-            content = f"Q: {question}\nAnswers:\n{answers}\nCorrect Answer: {item['correct_answer']}"
-            documents.append(Document(page_content=content, metadata={"source": "json"}))
-    return documents
+# def load_json_documents(file_path):
+#     documents = []
+#     with open(file_path, 'r') as f:
+#         data = json.load(f)
+#         for item in data:
+#             # Combine question and answers into a single string
+#             question = item['question']
+#             answers = '\n'.join([f"{key}: {value}" for key, value in item['answers'].items()])
+#             content = f"Q: {question}\nAnswers:\n{answers}\nCorrect Answer: {item['correct_answer']}"
+#             documents.append(Document(page_content=content, metadata={"source": "json"}))
+#     return documents
 
 def split_text(documents: list[Document]):
     text_splitter = RecursiveCharacterTextSplitter(
