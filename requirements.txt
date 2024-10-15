@@ -4,7 +4,7 @@ langchain_chroma
 # install markdown depenendies with: `pip install "unstructured[md]"` after install the requirements file. Leave this line commented out. 
 
 python-dotenv # For reading environment variables stored in .env file
-langchain_chroma
+langchain
 langchain-community
 langchain-openai # For embeddings
 unstructured # Document loading
