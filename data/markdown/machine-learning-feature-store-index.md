@@ -70,6 +70,7 @@ Work with data
     * [Build gen AI apps](../../generative-ai/build-genai-apps.html)
     * [MLOps and MLflow](../../mlflow/index.html)
     * [Integrations](../integrations.html)
+    * [Graph and network analysis](../graph-analysis.html)
     * [Reference solutions](../reference-solutions/index.html)
   * [Generative AI tutorial](../../generative-ai/tutorials/ai-cookbook/index.html)
   * [Business intelligence](../../ai-bi/index.html)
@@ -93,7 +94,7 @@ Reference & resources
   * [Whatâs coming?](../../whats-coming.html)
   * [Documentation archive](../../archive/index.html)
 
-Updated Oct 11, 2024
+Updated Oct 14, 2024
 
 [Send us feedback](mailto:doc-feedback@databricks.com?subject=Documentation
 Feedback)
