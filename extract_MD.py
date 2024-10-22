@@ -16,7 +16,41 @@ def delete_folder_if_exists(folder_name):
 
 
 urls = [
-    "https://docs.databricks.com/en/machine-learning/feature-store/index.html"
+    "https://docs.databricks.com/en/machine-learning/index.html",
+    "https://docs.databricks.com/en/data-governance/unity-catalog/index.html",
+    "https://docs.databricks.com/en/mlflow/tracking.html",
+    "https://docs.databricks.com/en/machine-learning/model-serving/index.html",
+    "https://docs.databricks.com/en/jobs/index.html",
+    "https://docs.databricks.com/en/repos/index.html",
+    "https://docs.databricks.com/en/machine-learning/feature-store/index.html",
+    "https://docs.databricks.com/en/machine-learning/manage-model-lifecycle/index.html",
+    "https://docs.databricks.com/en/pyspark/index.html",
+    "https://docs.databricks.com/en/pyspark/basics.html",
+    "https://docs.databricks.com/en/pyspark/datasources.html",
+    "https://docs.databricks.com/en/pandas/index.html",
+    "https://docs.databricks.com/en/pandas/pyspark-pandas-conversion.html",
+    "https://docs.databricks.com/en/pandas/pandas-function-apis.html",
+    "https://docs.databricks.com/en/udf/pandas.html",
+    "https://docs.databricks.com/en/machine-learning/mlops/mlops-workflow.html",
+    "https://docs.databricks.com/en/mlflow/tracking.html",
+    "https://docs.databricks.com/en/lakehouse-monitoring/custom-metrics.html",
+    "https://www.mlflow.org/docs/latest/python_api/mlflow.html",
+    "https://docs.databricks.com/clusters/create.html",
+    "https://docs.databricks.com/applications/machine-learning/automl.html",
+    "https://mlflow.org/docs/latest/tracking.html",
+    "https://spark.apache.org/docs/3.5.3/ml-classification-regression.html",
+    "https://spark.apache.org/docs/3.5.3/ml-features.html",
+    "https://spark.apache.org/docs/3.5.3/ml-tuning.html",
+    "https://spark.apache.org/docs/3.5.3/ml-advanced.html",
+    "https://www.ibm.com/topics/ensemble-learning",
+    "https://scikit-learn.org/stable/modules/ensemble.html",
+    "https://spark.apache.org/docs/latest/api/python/user_guide/pandas_on_spark/index.html",
+    "https://docs.databricks.com/en/machine-learning/automl-hyperparam-tuning/index.html",
+    "https://docs.databricks.com/en/machine-learning/automl-hyperparam-tuning/hyperopt-distributed-ml.html",
+    "https://docs.databricks.com/en/machine-learning/automl-hyperparam-tuning/hyperopt-concepts.html",
+    "https://docs.databricks.com/en/visualizations/index.html",
+    "https://docs.databricks.com/en/compute/configure.html",
+    "https://www.mlflow.org/docs/latest/model-registry.html",
 ]
 
 

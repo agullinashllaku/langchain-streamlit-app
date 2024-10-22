@@ -5,11 +5,11 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 from extract_MD import url_dict
+from langchain_community.vectorstores import FAISS
+from langchain_core.vectorstores import VectorStoreRetriever
+from langchain.chains import RetrievalQA
 import openai
 import os
-
-
-
 
 # Load environment variables
 load_dotenv()
@@ -42,9 +42,7 @@ def main():
         if query_text:
             # Prepare the DB
             embedding_function = OpenAIEmbeddings()
-            db = Chroma(
-                persist_directory=CHROMA_PATH, embedding_function=embedding_function
-            )
+            db = FAISS.load_local("faiss_index_databricks",embedding_function, allow_dangerous_deserialization=True)
 
             results = db.similarity_search_with_relevance_scores(query_text, k=4)
             if len(results) == 0:
