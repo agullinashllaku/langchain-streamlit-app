@@ -9,10 +9,7 @@ import openai
 from dotenv import load_dotenv
 import os
 import json
-import streamlit as st
-from langchain_openai import ChatOpenAI
-from langchain.prompts import ChatPromptTemplate
-from extract_MD import url_dict
+
 
 # Load environment variables. Assumes that project contains .env file with API keys
 load_dotenv()
