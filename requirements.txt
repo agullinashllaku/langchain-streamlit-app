@@ -16,5 +16,4 @@ openai # For embeddings
 tiktoken  # For embeddings 
 streamlit
 faiss-cpu
-faiss
 pickle
