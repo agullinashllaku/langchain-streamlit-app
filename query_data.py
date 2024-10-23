@@ -69,8 +69,8 @@ def main():
 
                 if source_key in url_dict:
                     sources.add(url_dict[source_key])
-                else:
-                    sources = ["Test Bank"]
+                # else:
+                #     sources = ["Test Bank"]
 
                 sources = [source for source in sources if source is not None]
                 sources_string = ",".join(sources)
