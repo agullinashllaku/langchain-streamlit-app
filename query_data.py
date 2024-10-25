@@ -69,7 +69,6 @@ def main():
                 sources = set()
                 for doc, _score in results:
                     source_key = doc.metadata.get("source", None)
-                    source_key = source_key.replace("/","\\")
                     st.write(f"Source key: {source_key}")
 
                 if source_key in url_dict:

@@ -128,6 +128,7 @@ for i, url in enumerate(urls):
         # Save the markdown content to the file
         save_to_markdown_file(markdown_content, folder_name, filename)
         saved_path = os.path.join(folder_name, filename + ".md")
+        saved_path = saved_path.replace("/","\\")
         url_dict[saved_path] = url
 
     except Exception as e:
