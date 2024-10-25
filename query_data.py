@@ -1,5 +1,4 @@
 import streamlit as st
-from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
@@ -32,7 +31,7 @@ def main():
     st.write(
         "Enter your question for any topic related to Databricks ML Associate certification:"
     )
-
+    st.write(url_dict)
     # User input
     query_text = st.text_area("Question", "")
 
