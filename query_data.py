@@ -34,7 +34,8 @@ def main():
     st.write(
         "Enter your question for any topic related to Databricks ML Associate certification:"
     )
-    st.write(url_dict)
+    st.write("Available keys in url_dict:", list(url_dict.keys()))  # Debugging line
+
     # User input
     query_text = st.text_area("Question", "")
 
@@ -68,11 +69,12 @@ def main():
                 sources = set()
                 for doc, _score in results:
                     source_key = doc.metadata.get("source", None)
+                    st.write(f"Source key: {source_key}")
 
                 if source_key in url_dict:
                     sources.add(url_dict[source_key])
-                # else:
-                #     sources = ["Test Bank"]
+                else:
+                    sources = ["Test Bank"]
 
                 sources = [source for source in sources if source is not None]
                 sources_string = ",".join(sources)
