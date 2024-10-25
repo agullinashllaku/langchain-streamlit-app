@@ -35,7 +35,7 @@ def main():
         "Enter your question for any topic related to Databricks ML Associate certification:"
     )
     st.write("Available keys in url_dict:", list(url_dict.keys()))  # Debugging line
-
+    st.write(url_dict)
     # User input
     query_text = st.text_area("Question", "")
 
