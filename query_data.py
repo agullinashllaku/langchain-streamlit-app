@@ -3,14 +3,17 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
-from extract_MD import url_dict
+# from extract_MD import url_dict
 from langchain_community.vectorstores import FAISS
 import openai
 import os
+import importlib
+import extract_MD
 
 # Load environment variables
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
+url_dict = extract_MD.url_dict
 CHROMA_PATH = "chroma"
 
 

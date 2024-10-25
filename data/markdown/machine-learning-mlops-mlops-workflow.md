@@ -93,7 +93,7 @@ Reference & resources
   * [Whatâs coming?](../../whats-coming.html)
   * [Documentation archive](../../archive/index.html)
 
-Updated Oct 21, 2024
+Updated Oct 24, 2024
 
 [Send us feedback](mailto:doc-feedback@databricks.com?subject=Documentation
 Feedback)

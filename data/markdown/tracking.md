@@ -1,4 +1,4 @@
-  * __[![MLflow](_static/MLflow-logo-final-black.png)](index.html) 2.17.0
+  * __[![MLflow](_static/MLflow-logo-final-black.png)](index.html) 2.17.1
 
 [![](_static/icons/nav-home.svg) MLflow](index.html)
 

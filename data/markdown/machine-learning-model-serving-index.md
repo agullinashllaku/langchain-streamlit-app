@@ -95,7 +95,7 @@ Reference & resources
   * [Whatâs coming?](../../whats-coming.html)
   * [Documentation archive](../../archive/index.html)
 
-Updated Oct 21, 2024
+Updated Oct 24, 2024
 
 [Send us feedback](mailto:doc-feedback@databricks.com?subject=Documentation
 Feedback)
@@ -174,9 +174,11 @@ language-models/llm-serving-intro.html).
 
 Note
 
-For workloads that are latency sensitive or require high queries per second,
-Model Serving offers route optimization on custom model serving endpoints, see
-[Configure route optimization on serving endpoints](route-optimization.html).
+For workloads that are latency sensitive or involve a high number of queries
+per second, Databricks recommends using [route optimization](route-
+optimization.html) on custom model serving endpoints. Reach out to your
+Databricks account team to ensure your workspace is enabled for high
+scalability.
 
   * **Bring reliability and security to Model Serving** : Model Serving is designed for high-availability, low-latency production use and can support over 25K queries per second with an overhead latency of less than 50 ms. The serving workloads are protected by multiple layers of security, ensuring a secure and reliable environment for even the most sensitive tasks.
 
