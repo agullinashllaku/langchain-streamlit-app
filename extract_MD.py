@@ -109,7 +109,7 @@ def save_to_markdown_file(markdown_content, folder_name, filename):
 
 
 # Define folder where markdown files will be saved
-folder_name = "data\\markdown"
+folder_name = "data\markdown"
 delete_folder_if_exists(folder_name)
 
 url_dict = {}
